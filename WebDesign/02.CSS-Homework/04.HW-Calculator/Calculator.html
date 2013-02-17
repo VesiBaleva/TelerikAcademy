@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>CSS Styling - Windows Calculator</title>
+    <link href="css/styles.css" rel="stylesheet" />
+	<meta charset="utf-8" />
+</head>
+<body>
+	<div id="container">
+		<div id="inner_container">
+			<ul id="menu">
+				<li>
+					<span>V</span>iew
+				</li>
+				<li>
+					<span>E</span>dit
+				</li>
+				<li>
+					<span>H</span>elp
+				</li>
+			</ul>
+			<div id="display" >
+				<input type="text" value="8854455" id="displayCalc" />
+			</div>
+			<div id="bits" class="border">
+				<ul class="zero_digits">
+					<li>0000</li>
+					<li>0000</li>
+					<li>0000</li>
+					<li>0000</li>
+					<li>0000</li>
+					<li>0000</li>
+					<li>0000</li>
+					<li>0000</li>
+				</ul>
+				<ul class="positionBits">
+					<li>63&nbsp;&nbsp;</li>
+					<li>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+					<li>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+					<li>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+					<li>47&nbsp;&nbsp;</li>
+					<li>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+					<li>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+					<li>&nbsp;&nbsp;32</li>			
+				</ul>
+				<ul class="zero_digits">
+					<li>0000</li>
+					<li>0000</li>
+					<li>1000</li>
+					<li>0111</li>
+					<li>0001</li>
+					<li>1011</li>
+					<li>1011</li>
+					<li>0111</li>
+				</ul>
+				<ul class="positionBits">
+					<li>31&nbsp;&nbsp;</li>
+					<li>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+					<li>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+					<li>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+					<li>15&nbsp;&nbsp;</li>
+					<li>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+					<li>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+					<li>&nbsp;&nbsp;&nbsp;0</li>			
+				</ul>
+			</div>
+			<div id="left">
+				<div class="numeral border">
+					<span><input type="radio" name="numeralSystem" id="hex" />Hex&nbsp;</span>
+					<span><input type="radio" name="numeralSystem" id="dec" checked />Dec&nbsp;</span>
+					<span><input type="radio" name="numeralSystem" id="oct" />Oct&nbsp;</span>
+					<span><input type="radio" name="numeralSystem" id="bin" />Bin</span>
+				</div>
+				<div class="numeral border">
+					<span><input type="radio" name="word" id="qword" checked />Qword</span>
+					<span><input type="radio" name="word" id="dword"  />Dword</span>
+					<span><input type="radio" name="word" id="word" />Word</span>
+					<span><input type="radio" name="word" id="byte" />Byte</span>
+				</div>
+			</div>
+			<div id="buttons">
+				<div class="line">
+					<button class="border disabled">&nbsp;</button>
+					<button class="border enabled">Mod</button>
+					<button class="border disabled">A</button>
+					<button class="border disabled">MC</button>
+					<button class="border disabled">MR</button>
+					<button class="border disabled">MS</button>
+					<button class="border disabled">M+</button>
+					<button class="border disabled">M-</button>
+				</div>
+				<div class="line">
+					<button class="border enabled">(</button>
+					<button class="border enabled">)</button>
+					<button class="border disabled">B</button>
+					<button class="border enabled">&larr;</button>
+					<button class="border enabled">CE</button>
+					<button class="border enabled">C</button>
+					<button class="border enabled">&#177;</button>
+					<button class="border disabled">&#8730;</button>
+				</div>
+				<div class="line">
+					<button class="border enabled">RoL</button>
+					<button class="border enabled">RoR</button>
+					<button class="border disabled">C</button>
+					<button class="border">7</button>
+					<button class="border">8</button>
+					<button class="border">9</button>
+					<button class="border enabled">/</button>
+					<button class="border disabled">%</button>					
+				</div>
+				<div class="line">
+					<button class="border  enabled">Or</button>
+					<button class="border  enabled">Xor</button>
+					<button class="border disabled">D</button>
+					<button class="border">4</button>
+					<button class="border">5</button>
+					<button class="border">6</button>
+					<button class="border enabled">*</button>
+					<button class="border disabled">1/x</button>
+				</div>
+				
+				<div class="line">
+					<button class="border enabled">Lsh</button>
+					<button class="border enabled">Rsh</button>
+					<button class="border disabled">E</button>
+					<button class="border">1</button>
+					<button class="border">2</button>
+					<button class="border">3</button>
+					<button class="border enabled">-</button>
+					<button id="equal" class="border enabled">=</button>					
+				</div>				
+				<div class="line">
+					<button class="border enabled">Not</button>
+					<button class="border enabled">End</button>
+					<button class="border disabled">F</button>
+					<button class="border" id="zero">0</button>
+					<button class="border disabled">.</button>
+					<button class="border enabled">+</button>
+				</div>				
+			</div>
+		</div>
+	</div>
+</body>
+</html>

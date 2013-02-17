@@ -1,0 +1,11 @@
+/* CSS document*/
+body	{
+	width:1000px;
+	
+}
+div	{
+	background-color: #000;
+	border: 1px solid red;
+	padding-right:3%;
+	border-radius:60px;
+}

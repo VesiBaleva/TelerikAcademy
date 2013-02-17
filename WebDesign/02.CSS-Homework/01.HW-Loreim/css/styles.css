@@ -1,0 +1,22 @@
+/* CSS document*/
+body
+{
+	background-color:#ffffff;
+	color:#0094ff;
+}
+
+article p
+{
+	width:100%;
+	font-family:consolas;
+	line-height:18px;
+}
+p:first-line
+{
+	font-weight:bold;
+}
+p:first-letter
+{
+	font-family: Edwardian Script ITC;
+	font-size:40px;
+}

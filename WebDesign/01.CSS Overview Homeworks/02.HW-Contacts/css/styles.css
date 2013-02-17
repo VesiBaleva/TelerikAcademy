@@ -1,0 +1,65 @@
+/* CSS Document*/
+body	{
+	background-color: #0B0B0B;
+	font-family:Segoe UI;
+	font-size:14px;
+	font-weight:600;
+}
+table	{
+	background-color: #FFFFFF;
+	border-spacing:0px 0px;
+}
+
+th	{
+	background-color: #50B306;
+	color: #C0ECAA;
+border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #297A02;	
+border-right-width: 1px; border-right-style: solid; border-right-color: #6CC327;
+}
+th {
+	border-left: 1px solid #297A02;
+	text-align:left;
+	padding:10px;
+}
+td	{
+
+border-left: 1px solid #C2C1A6;
+}
+tr:nth-child(2n)	{
+	background-color:#ECECD8;
+}
+td	{
+	padding-left:10px;
+	padding-bottom:20px;
+	padding-top:15px;
+}
+img	{
+	
+	padding-right:10px;
+	
+}
+th:first-child, td:first-child	{
+	border-left: none;
+}
+th:last-child, td:last-child	{
+	border-right: none;
+}
+tr:last-child >td	{
+	border-bottom: 2px solid #C2C1A6;
+}
+th:nth-child(2n+1)	{
+	width: 130px;
+}
+
+th:nth-child(2n)	{
+	width: 100px;
+}
+input[type="checkbox"]
+{
+    
+	border:none;
+    outline:2px inset #ffffff;
+    outline-offset:-1px;
+    
+	
+}

@@ -1,0 +1,82 @@
+﻿.clearfix	{
+	zoom:1;
+}
+.clearfix:after	{
+	content:"";
+	display:block;
+	clear:both;
+	height:0;
+}
+body, form, header, nav, ul, li, a,p, section, div, fieldset , input, legend, label	{
+	font-family:sans-serif;
+	margin:0;
+	padding:0;
+}
+
+body	{
+	width:80%;
+    margin: 0 auto;
+}
+nav ul { 
+    text-align: center;
+}
+        nav li {
+             display: inline-block;
+             list-style-type:none;
+        }
+        nav a {
+            padding: 0 10px;
+            color: #1DB7F1;
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+
+        div.left {
+            position: relative;
+            overflow: hidden;
+            padding: 10px 224px 0 0;
+        }
+        div.left fieldset {
+            float: left;
+            margin: 0 0 10px 10px;
+            padding: 10px 20px;
+            width: 265px;
+            
+        }
+
+
+        
+        div.left ul {
+            float: right;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        div.left li {
+            margin-bottom: 10px;
+        }
+
+
+div fieldset div {
+    float:right;
+    position:relative;
+    margin-top:-90px;
+}
+    div fieldset div p {
+        margin-top:10px;
+    }
+
+
+div.right	{
+	
+    float:right;
+    position:relative;
+    margin-top:-225px;	
+    right:200px;
+}
+
+div.left {
+    
+    border: 1px solid black;
+    
+}
