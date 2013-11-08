@@ -1,0 +1,41 @@
+﻿<Page
+    x:Class="Tic_Tac_Toe.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Tic_Tac_Toe"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ViewModels="using:Tic_Tac_Toe.ViewModels"
+    mc:Ignorable="d">
+    <Page.DataContext>
+        <ViewModels:AppViewModel/>
+    </Page.DataContext>
+
+    <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel Background="Black">
+            <TextBlock HorizontalAlignment="Center" FontSize="24">
+                <Run Text="It's your move, "/>
+                <Run Text="{Binding CurrentPlayerName}"/>
+            </TextBlock>
+            <ItemsControl ItemsSource="{Binding Cells}">
+            	<ItemsControl.Foreground>
+            		<SolidColorBrush Color="White"/>
+            	</ItemsControl.Foreground>
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <!--<UniformGrid/>-->
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.Template>
+                    <ControlTemplate TargetType="ItemsControl">
+                        <Grid>
+                            <Rectangle Fill="Purple" RadiusX="0" RadiusY="0"/>
+                            <ItemsPresenter Margin="10"/>
+                        </Grid>
+                    </ControlTemplate>
+                </ItemsControl.Template>
+            </ItemsControl>
+        </StackPanel>
+        <GridView HorizontalAlignment="Left" Height="492" Margin="903,369,0,-93" VerticalAlignment="Top" Width="83"/>
+    </Grid>
+</Page>
