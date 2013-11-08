@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<albums>
+  <album>
+    <title>Nature</title>
+    <image>
+      <title>Mountain</title>
+      <image>..\..\..\Images\nature-wallpapers-free.jpg</image>
+    </image>
+    <image>
+      <title>Leaf</title>
+      <image>..\..\..\Images\Leaf-Nature-Backgrounds-HD-Wallpaper.jpg</image>
+    </image>
+    <image>
+      <title>Lake</title>
+      <image>..\..\..\Images\images.jpg</image>
+    </image>
+  </album>
+  <album>
+    <title>Cats</title>
+    <image>
+      <title>Sara</title>
+      <image>..\..\..\Images\Cats.jpg</image>
+    </image>
+    <image>
+      <title>Toshko</title>
+      <image>..\..\..\Images\images1.jpg</image>
+    </image>    
+    <image>
+      <title>Many Cats</title>
+      <image>..\..\..\Images\800px-Rsgranne_-_Cats_cats_cats!_(Arrow_Rock,_Missouri,_20050703)_03_(by-sa).jpg</image>
+    </image>
+  </album>
+</albums>

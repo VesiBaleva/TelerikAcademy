@@ -1,0 +1,44 @@
+﻿<Window xmlns:Views="clr-namespace:WpfCinemaClient.Views" x:Class="WpfCinemaClient.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ViewModel="clr-namespace:WpfCinemaClient.ViewModels"        
+        Title="MainWindow" Height="350" Width="525">
+    <Window.DataContext>
+        <ViewModel:AppViewModel />
+    </Window.DataContext>
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type ViewModel:CinemasListViewModel}">
+            <Views:CinemasListView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type ViewModel:MoviesListViewModel}">
+            <Views:MoviesListView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type ViewModel:ProjectionsViewModel}">
+            <Views:ProjectionsListView/>
+        </DataTemplate>
+    </Window.Resources>
+    <Grid>
+        <DockPanel>
+            <StackPanel Name="HeaderContainer"                        
+                        DockPanel.Dock="Top">
+                <ItemsControl ItemsSource="{Binding ViewModels}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal" />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Button Content="{Binding Name}"
+                                    Command="{Binding Path=DataContext.ChangeViewModel, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
+                                    CommandParameter="{Binding}"/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+            <ContentControl DockPanel.Dock="Bottom"            
+                            Content="{Binding CurrentViewModel}" />
+
+        </DockPanel>        
+    </Grid>    
+</Window>

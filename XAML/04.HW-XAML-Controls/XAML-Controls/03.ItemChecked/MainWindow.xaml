@@ -1,0 +1,9 @@
+﻿<Window x:Class="_03.ItemChecked.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <StackPanel>
+        <ComboBox Name="cbFontFamily" Width="350" SelectionChanged="CbFontFamily_OnSelectionChanged" HorizontalAlignment="Center"></ComboBox>
+        <TextBlock Name="lblResult"></TextBlock>
+    </StackPanel>
+</Window>

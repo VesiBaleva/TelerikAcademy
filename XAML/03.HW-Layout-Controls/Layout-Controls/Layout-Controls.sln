@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01.Layout-Controls", "Layout-Controls\01.Layout-Controls.csproj", "{1DF90EB0-B59B-4999-95E5-0638223A803F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02.Buttons", "02.Buttons\02.Buttons.csproj", "{978CE823-6DF7-4B11-90C5-1C519FFADE23}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03.Tabs", "03.Tabs\03.Tabs.csproj", "{01B98556-E80B-4ED8-BA37-95FFF254278F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04.GridSplitter", "04.GridSplitter\04.GridSplitter.csproj", "{7FBD2F94-C646-4348-B96C-E0CDC8C040C6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1DF90EB0-B59B-4999-95E5-0638223A803F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DF90EB0-B59B-4999-95E5-0638223A803F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DF90EB0-B59B-4999-95E5-0638223A803F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DF90EB0-B59B-4999-95E5-0638223A803F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{978CE823-6DF7-4B11-90C5-1C519FFADE23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{978CE823-6DF7-4B11-90C5-1C519FFADE23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{978CE823-6DF7-4B11-90C5-1C519FFADE23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{978CE823-6DF7-4B11-90C5-1C519FFADE23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01B98556-E80B-4ED8-BA37-95FFF254278F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01B98556-E80B-4ED8-BA37-95FFF254278F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01B98556-E80B-4ED8-BA37-95FFF254278F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01B98556-E80B-4ED8-BA37-95FFF254278F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FBD2F94-C646-4348-B96C-E0CDC8C040C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FBD2F94-C646-4348-B96C-E0CDC8C040C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FBD2F94-C646-4348-B96C-E0CDC8C040C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FBD2F94-C646-4348-B96C-E0CDC8C040C6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<stores>
+  <store>
+    <name>Sofia</name>
+    <phone>
+      <vendor>Samsung</vendor>
+      <model>Galaxy S4</model>
+      <year>2013</year>
+      <os>
+        <name>Android</name>
+        <version>Jelly Bean</version>
+        <manufacturer>Google Inc.</manufacturer>
+      </os>
+    </phone>
+    <phone>
+      <vendor>HTC</vendor>
+      <model>WindowsPhone 8X</model>
+      <year>2013</year>
+      <os>
+        <name>WindowsPhone</name>
+        <version>8</version>
+        <manufacturer>Microsoft</manufacturer>
+      </os>
+    </phone>
+  </store>
+  <store>
+    <name>Plovdiv</name>
+    <phone>
+      <vendor>Apple</vendor>
+      <model>iPhone 5</model>
+      <year>2012</year>
+      <os>
+        <name>iOS</name>
+        <version>6</version>
+        <manufacturer>Apple</manufacturer>
+      </os>
+    </phone>
+    <phone>
+      <vendor>HTC</vendor>
+      <model>One</model>
+      <year>2014</year>
+      <os>
+        <name>Android</name>
+        <version>Jelly bean</version>
+        <manufacturer>Google Inc.</manufacturer>
+      </os>
+    </phone>
+    <phone>
+      <vendor>Google</vendor>
+      <model>Nexus</model>
+      <year>2014</year>
+      <os>
+        <name>Android</name>
+        <version>Jelly bean</version>
+        <manufacturer>Google Inc.</manufacturer>
+      </os>
+    </phone>
+  </store>
+  <store>
+    <name>Varna</name>
+    <phone>
+      <vendor>Nokia</vendor>
+      <model>Lumia 920</model>
+      <year>2014</year>
+      <os>
+        <name>WindowsPhone</name>
+        <version>8</version>
+        <manufacturer>Microsoft</manufacturer>
+      </os>
+    </phone>
+    <phone>
+      <vendor>BlackBerry</vendor>
+      <model>Q10</model>
+      <year>2014</year>
+      <os>
+        <name>BlackBerry OS</name>
+        <version>10</version>
+        <manufacturer>BlackBerry</manufacturer>
+      </os>
+    </phone>
+    <phone>
+      <vendor>Nokia</vendor>
+      <model>2100</model>
+      <year>2003</year>
+      <os>
+        <name>None</name>
+        <version>None</version>
+        <manufacturer>Nokia</manufacturer>
+      </os>
+    </phone>
+    <phone>
+      <vendor>NEW</vendor>
+      <model>aaaa</model>
+      <year>0</year>
+      <os>
+        <name>Android</name>
+        <version>Android</version>
+        <manufacturer>Google Inc.</manufacturer>
+      </os>
+    </phone>
+    <phone>
+      <vendor>qwe</vendor>
+      <model>qwe</model>
+      <year>1111</year>
+      <os>
+        <name>BlackBerry OS</name>
+        <version>BlackBerry OS</version>
+        <manufacturer>BlackBerry</manufacturer>
+      </os>
+    </phone>
+  </store>
+  <store>
+    <name>Kaspichan</name>
+    <phone>
+      <vendor>Apple</vendor>
+      <model>IPhone4S</model>
+      <year>2011</year>
+      <os>
+        <name>iOS</name>
+        <version>iOS</version>
+        <manufacturer>Apple</manufacturer>
+      </os>
+    </phone>
+  </store>
+  <store>
+    <name>frgrh</name>
+  </store>
+  <store>
+    <name>proba</name>
+  </store>
+  <store>
+    <name />
+  </store>
+  <store>
+    <name />
+  </store>
+  <store>
+    <name />
+  </store>
+  <store>
+    <name />
+  </store>
+  <store>
+    <name />
+  </store>
+  <store>
+    <name />
+  </store>
+  <store>
+    <name />
+  </store>
+  <store>
+    <name />
+  </store>
+  <store>
+    <name>2145863.</name>
+  </store>
+  <store>
+    <name />
+  </store>
+  <store>
+    <name />
+  </store>
+  <store>WpfPhoneStores.StoreViewModel</store>
+</stores>

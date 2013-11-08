@@ -1,0 +1,48 @@
+﻿<UserControl x:Class="WpfCinemaClient.Views.ProjectionsListView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <ListView ItemsSource="{Binding ProjectionsList}"
+                 SelectedItem="{Binding SelectedProjection}">
+            <ListView.View>
+                        <GridView>
+                        <GridView.Columns>
+                            <GridViewColumn Header="Time" DisplayMemberBinding="{Binding Time}"/>
+                            <GridViewColumn Header="Cinemas">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <ListView ItemsSource="{Binding Cinema}">
+                                            <ListView.View>
+                                                <GridView>
+                                                    <GridView.Columns>
+                                                        <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}"/>
+                                                    </GridView.Columns>
+                                                </GridView>
+                                            </ListView.View>
+                                        </ListView>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Header="Movie">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <ListView ItemsSource="{Binding Movie}">
+                                            <ListView.View>
+                                                <GridView>
+                                                    <GridView.Columns>
+                                                        <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Title}"/>
+                                                    </GridView.Columns>
+                                                </GridView>
+                                            </ListView.View>
+                                        </ListView>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                        </GridView.Columns>
+                    </GridView>
+            </ListView.View>
+    </ListView>
+</UserControl>

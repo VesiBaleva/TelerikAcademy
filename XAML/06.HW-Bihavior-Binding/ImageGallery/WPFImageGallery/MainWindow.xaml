@@ -1,0 +1,33 @@
+﻿<Window x:Class="WPFImageGallery.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vms="clr-namespace:WPFImageGallery"
+        Title="MainWindow" Height="400" Width="525">
+    <Window.DataContext>
+        <vms:AlbumsViewModel />
+    </Window.DataContext>
+    <StackPanel>
+        <TabControl ItemsSource="{Binding Albums}" SelectedIndex="0" DisplayMemberPath="Title" IsSynchronizedWithCurrentItem="True">
+            <TabControl.ContentTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <StackPanel Height="300" DataContext="{Binding CurrentImage}">
+                            <TextBlock FontWeight="Bold" 
+                                       HorizontalAlignment="Center"
+                                       FontSize="24">
+                                <TextBox Text="{Binding Title}"/>                            
+                            </TextBlock>
+                                        <Image Source="{Binding ImagePath}"
+                                   Width="300" 
+                                   HorizontalAlignment="Center"/>                        
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Button Command="{Binding Prev}">Prev</Button>
+                            <Button Command="{Binding Next}">Next</Button>
+                        </StackPanel>                        
+                    </StackPanel>
+                </DataTemplate>
+            </TabControl.ContentTemplate>
+        </TabControl>
+    </StackPanel>
+</Window>
