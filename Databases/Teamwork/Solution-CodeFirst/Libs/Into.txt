@@ -1,0 +1,1 @@
+MongoDB.Driver.dll - I have changed to ToString-implementation of Oid - so that it doesn't contain "ObjectId".

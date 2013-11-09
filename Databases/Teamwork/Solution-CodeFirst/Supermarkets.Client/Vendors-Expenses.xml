@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sales>
+  <sale vendor="Nestle Sofia Corp.">
+    <expenses month="Jul-2013">30.00</expenses>    
+  </sale>
+  <sale vendor="Zagorka Corp.">
+    <expenses month="Jul-2013">25.00</expenses>
+     </sale>
+  <sale vendor="Targovishte Bottling Company Ltd.">
+    <expenses month="Jul-2013">30.00</expenses>   
+  </sale>
+  <sale vendor="Misho Birata Ltd.">
+    <expenses month="Jul-2013">60.00</expenses>    
+  </sale>
+  <sale vendor="Bulgartabac Corp.">
+    <expenses month="Jul-2013">65.00</expenses>
+  </sale>
+  <sale vendor="Peshtera Bottling Company Ltd.">
+    <expenses month="Jul-2013">50.00</expenses>
+  </sale>
+  <sale vendor="Chio Foods Ltd.">
+    <expenses month="Jul-2013">70.00</expenses>
+  </sale>
+  <sale vendor="Purshevitsa Ltd.">
+    <expenses month="Jul-2013">50.00</expenses>
+  </sale>
+  <sale vendor="Moreni Ltd.">
+    <expenses month="Jul-2013">105.00</expenses>
+  </sale>
+  <sale vendor="Vinprom Karnobat Ltd.">
+    <expenses month="Jul-2013">52.00</expenses>
+  </sale>
+  <sale vendor="Roev Furits Ltd.">
+    <expenses month="Jul-2013">25.00</expenses>
+  </sale>
+  <sale vendor="Green Ltd.">
+    <expenses month="Jul-2013">50.00</expenses>
+  </sale>
+  <sale vendor="Niki Fruit Ltd.">
+    <expenses month="Jul-2013">55.00</expenses>
+  </sale>
+  <sale vendor="Danone Ltd.">
+    <expenses month="Jul-2013">35.00</expenses>
+  </sale>
+  <sale vendor="Craft Foods Corp.">
+    <expenses month="Jul-2013">88.00</expenses>
+  </sale>
+  <sale vendor="Coca-Cola Sofia Corp.">
+    <expenses month="Jul-2013">51.00</expenses>
+    <expenses month="Aug-2013">43.00</expenses>
+  </sale>
+  <sale vendor="Rusev And Son Ltd.">
+    <expenses month="Jul-2013">50.00</expenses>
+  </sale>
+  <sale vendor="Moni-77 Ltd.">
+    <expenses month="Jul-2013">20.00</expenses>
+  </sale>
+  <sale vendor="Pepsi Sofia Ltd.">
+    <expenses month="Jul-2013">52.00</expenses>
+  </sale>
+  <sale vendor="Margarit Ltd.">
+    <expenses month="Jul-2013">54.00</expenses>
+  </sale>
+</sales>
