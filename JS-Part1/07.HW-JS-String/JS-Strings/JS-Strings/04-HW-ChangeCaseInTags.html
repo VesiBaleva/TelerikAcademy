@@ -1,0 +1,118 @@
+﻿<!--You are given a text. Write a function that changes the text in all regions:
+<upcase>text</upcase> to uppercase.
+<lowcase>text</lowcase> to lowercase
+<mixcase>text</mixcase> to mix casing(random)
+    We are <mixcase>living</mixcase> in a <upcase>yellow submarine</upcase>. 
+    We <mixcase>don't</mixcase> have <lowcase>anything</lowcase> else.
+
+    The expected result:
+    
+    We are LiVinG in a YELLOW SUBMARINE. We dOn'T have anything else.
+    
+    Regions can be nested
+-->
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Working with strings</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <label for="tb-text">Some text with tags: </label>
+	<input id="tb-text" type="text" class="js-console-input" />
+   
+	<a href="#" class="js-console-btn" onclick="onBtnClick()">Change text</a>
+
+	<div id="js-console"></div>
+
+	<script src="scripts/js-console.js"></script>
+	<script>
+	    function onBtnClick() {
+	        
+	        var str = jsConsole.read("#tb-text");
+	        var newStr=changeCase(str);
+	        jsConsole.writeLine(newStr);
+	    }
+
+	    function changeCase(text) {
+	        var newText = buildStringBuilder();
+	        var inTag = false;
+	        var inClosingTag = false;
+	        var currentTag = buildStringBuilder();
+	        
+
+	        for (var index = 0; index < text.length; index++) {
+	            if (text[index] === "<") {
+	                
+
+	                
+	                currentTag.clear();
+	                if (index < text.length - 1 && text[index + 1] === "/") {
+	                    index++;
+	                    inClosingTag = true;
+	                    continue;
+	                }
+	                inTag = true;
+	                continue;
+	            }
+	            else if (text[index] === ">") {
+	                inTag = false;
+	                inClosingTag = false;
+	                continue;
+	            }
+	            if (inClosingTag) {
+	                continue;
+	            }
+	            if (inTag) {
+	                currentTag.append(text[index]);
+	            }
+	            else {
+	                if (currentTag.length != 0) {
+	                    if (currentTag.toString() === "lowcase") {
+	                        newText.append(text[index].toLowerCase());
+	                    }
+	                    else if (currentTag.toString() === "upcase") {
+	                        newText.append(text[index].toUpperCase());
+	                    }
+	                    else if (currentTag.toString() === "mixcase") {
+	                        if (Math.random() < 0.5) {
+	                            newText.append(text[index].toLowerCase());
+	                        }
+	                        else {
+	                            newText.append(text[index].toUpperCase());
+	                        }
+	                    }
+	                }
+	                else {
+	                    newText.append(text[index]);
+	                }
+	            }
+	        }
+	        return newText;
+	    }
+
+
+
+
+	    function buildStringBuilder() {
+	        return {
+	            strs: [],
+	            len: 0,
+	            append: function (str) {
+	                this.strs[this.len++] = str;
+	                return this;
+	            },
+	            clear: function () {
+	                this.strs = [];
+	                this.len = 0;
+	            },
+	            toString: function () {
+	                return this.strs.join("");
+	            }
+	        };
+	    }
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="My Javascript2 exam">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>JavaScript 2 exam</title>
+        <script src="js/grid.js"></script>
+        <style>
+
+            table, th, td {
+                border:1px solid black;
+                border-collapse:collapse;
+                padding: 10px;
+            }
+            
+        </style>
+    </head>
+    <body>
+    	<h2>Пример за задача 1</h2>
+    	<div id="grid-view-holder"></div>
+
+    	<h2>Пример за задача 2</h2>
+    	<div id="grid-view-holder2"></div>
+
+        <script text/javascript>
+        	var schoolsGrid = controls.getGridView("#grid-view-holder");
+            schoolsGrid.addHeader("Name","Location","Total Students", "Speciality");
+        	schoolsGrid.addRow("PMG","Burgas", 400, "Math");
+        	schoolsGrid.addRow("TUES","Sofia",500,"IT");
+        	schoolsGrid.addRow("Telerik Academy","Sofia",5000,"IT");
+            schoolsGrid.render();
+
+            var schoolsGrid = controls.getGridView("#grid-view-holder2");
+            schoolsGrid.addHeader("Name","Location","Total Students", "Speciality");
+        	schoolsGrid.addRow("PMG","Burgas", 400, "Math");
+        	schoolsGrid.addRow("TUES","Sofia",500,"IT");
+        	schoolsGrid.addRow("Telerik Academy","Sofia",5000,"IT");
+            schoolsGrid.render();
+            
+        </script>        
+    </body>
+</html>

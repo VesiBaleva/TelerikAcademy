@@ -1,0 +1,34 @@
+﻿<!--Write a JavaScript function reverses string and returns itExample: "sample"  "elpmas".
+-->
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Working with strings</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <label for="tb-text">Some string: </label>
+	<input id="tb-text" type="text" class="js-console-input" />
+	<a href="#" class="js-console-btn" onclick="onBtnClick()">Reverse string</a>
+
+	<div id="js-console"></div>
+
+	<script src="scripts/js-console.js"></script>
+	<script>
+	    function onBtnClick() {
+	        
+	        var str = jsConsole.read("#tb-text");
+	        var result = [];
+
+	        for (var i = str.length-1; i >= 0; i--)
+	        {
+	            result.push(str[i]);
+	        }
+
+	        jsConsole.writeLine(result.join(""));
+
+	    }
+	</script>
+</body>
+</html>

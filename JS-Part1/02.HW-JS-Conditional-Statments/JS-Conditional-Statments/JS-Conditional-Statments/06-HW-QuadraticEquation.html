@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>JS-Conditional-Statments</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <style>
+	input[type=text]{
+		border:1px solid black;
+		padding:5px 15px;
+		background-color:black;
+		color:white;
+		font-family:Consolas;		   
+		margin-bottom:5px;
+	}
+
+	a{
+		color:black;
+		border:1px solid black;
+		padding:5px 15px;						
+		text-decoration:none;	   
+		display:inline-block;		 
+		margin: 15px 0;
+	}
+
+	a:hover{
+		text-decoration:underline;
+	}
+</style>
+</head>
+<body>
+    <fieldset>
+        <legend>Quadratic equation:</legend>
+        <label for="tb-number1">Enter coefficient a:</label>
+	    <input type="text" id="tb-number1"/>
+	    <br />			
+        <label for="tb-number2">Enter coefficient b:</label>
+	    <input type="text" id="tb-number2"/>
+	    <br />		
+        <label for="tb-number3">Enter coefficient c:</label>
+	    <input type="text" id="tb-number3"/>
+	    <br />		
+        <a href="#" onclick="onButtonClick()">Calc</a>
+	    <div id="console">
+	    </div>
+    </fieldset>
+    <script src="scripts/js-console.js"></script>
+    <script>
+        function onButtonClick() {
+                       
+            var a = jsConsole.readFloat("#tb-number1");
+            var b = jsConsole.readFloat("#tb-number2");
+            var c = jsConsole.readFloat("#tb-number3");
+
+            var d = b * b - 4 * a * c;
+            var x = 0;
+            var y = 0;
+
+            if (a == 0) {
+                if (b != 0) {
+                    x = -c / b;
+                    jsConsole.writeLine("The equation has one root -> " + x);
+                }
+                else {
+                    jsConsole.writeLine("Your quadratic equation can not be solved!");
+                }
+            }
+            else {
+                if (d == 0) {
+                    jsConsole.writeLine("The quadratic equation has one real root!");
+                    x = y = -b / (2 * a);
+                    jsConsole.writeLine("x1=x2=" + x);
+                }
+                if (d > 0) {
+                    jsConsole.writeLine("The quadratic equation has two real roots!");
+                    x = (-b + Math.sqrt(d)) / (2 * a);
+                    y = (-b - Math.sqrt(d)) / (2 * a);
+                    jsConsole.writeLine("x1 = " + x);
+                    jsConsole.writeLine("x2 = " + y);
+                }
+                if (d < 0) {
+                    jsConsole.writeLine("The quadratic equation has not any real roots!");
+                }
+            }
+
+
+
+        }
+    </script>
+
+</body>
+</html>

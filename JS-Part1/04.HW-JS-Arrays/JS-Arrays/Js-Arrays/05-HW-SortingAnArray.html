@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>JS-Arrays</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <style>
+	input[type=text]{
+		border:1px solid black;
+		padding:5px 15px;
+		background-color:black;
+		color:white;
+		font-family:Consolas;		   
+		margin-bottom:5px;
+	}
+
+	a{
+		color:black;
+		border:1px solid black;
+		padding:5px 15px;						
+		text-decoration:none;	   
+		display:inline-block;		 
+		margin: 15px 0;
+	}
+
+	a:hover{
+		text-decoration:underline;
+	}
+</style>
+</head>
+<body>
+    <fieldset>
+        <legend>Sorting an array:</legend>		
+        <a href="#" onclick="onButtonClick()">Sort</a>
+	    <div id="console">
+	    </div>
+    </fieldset>
+    <script src="scripts/js-console.js"></script>
+    <script>
+
+        function onButtonClick() {
+
+            var array = [3, 2, 3, 4, 2, 2, 4];
+
+            for (var i in array) {
+
+                jsConsole.write(array[i] + " ");
+            }
+
+            var smallest = 0;
+            var currentItem = 0;
+            var indexItem = 0;
+            var change = false;
+            
+            for (var i = 0; i < array.length-1; i++)
+            {
+                currentItem = array[i];
+            
+                for (var j = i + 1; j < array.length; j++)
+                {
+                    if (currentItem > array[j])
+                    {
+                        smallest = array[j];
+                        currentItem = smallest;
+                        indexItem = j;
+                        change = true;
+                    }
+                }
+                if (change)
+                {
+                    array[indexItem] = array[i];
+                    array[i] = smallest;
+                    change = false;
+                }
+            }
+        
+            var printSequence = "";
+            
+            for (var i = 0; i < array.length; i++)
+            {
+                printSequence += array[i];
+                printSequence += " ";
+            }
+
+
+            jsConsole.writeLine("The order is "+printSequence);
+        }
+    </script>
+    
+</body>
+</html>

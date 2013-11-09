@@ -1,0 +1,52 @@
+﻿<!-- Write a function that reverses the digits of given decimal number. Example: 256  652
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Reverse digits</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+	<label for="tb-number">Number: </label>
+	<input id="tb-number" type="text" class="js-console-input" />
+	<a href="#" class="js-console-btn" onclick="onBtnClick()">Reverse digits</a>
+	<div id="js-console"></div>
+	<script src="scripts/js-console.js"></script>
+	<script>
+
+	    function onBtnClick() {
+	        var number = jsConsole.readInteger("#tb-number");	               
+	        if (number >= 0)
+	        {
+	            jsConsole.writeLine("Number: " + number + " -> " + reverseDigit(number));
+	        }
+	        else{
+	            jsConsole.writeLine("Number: " + number + " -> -" + reverseDigit(number));
+	        }
+	        	        
+	        jsConsole.writeLine("----------------");
+
+	    }
+	    function reverseDigit(number) {
+	        
+	        var reversed = "";
+	        var div;
+	        var reminder;
+	        
+			<!-- use Math.abs for negative numbers -->
+			number = Math.abs(number);
+	        
+				<!-- use divider and remainder of 10 and concatenated string reversed-->
+	            while (number>0)
+	            {
+	                reminder =parseInt(number % 10);
+	                reversed = reversed + reminder;
+	                number = Math.floor(number / 10);	           
+	            }
+	            
+	            return reversed;
+	        }    	    
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Demo for moving shapes</title>
+	<style type="text/css">
+		.shiny-div	{
+			width:40px;
+			height:40px;
+			position:absolute;
+			border-width:2px;
+			border-style: solid;
+			line-height: 40px;
+			text-align:center;
+			vertical-align:middle;
+			font-size: 20px;
+			font-family: sans-serif;
+			border-radius: 10px;
+		}
+		#header {
+			width:400px;
+		}
+	</style>
+</head>
+<body>
+    <div id="header">
+        <button onclick="onRectClick()">Add div for rectangle moving</button>
+        <button onclick="onEllipseClick()">Add div for ellipse moving</button>
+    </div>
+    <div id="wrapper">
+    </div>
+    <script type="text/javascript">
+    	//start with module function
+    	var movingShapes = (function() {
+    		//some constants
+    		var RECT_DIV_LEFT_POSITION = 50;
+	        var RECT_DIV_TOP_POSITION = 100;
+	        var maxRectCoordinates = { x: 500, y: 300 };
+	        var rectangularDivs = [];
+	        setInterval(function () { moveRectDiv(rectangularDivs) }, 100);
+	        var ELLIPSE_CENTER_DIV_LEFT_POSITION = 1000;
+	        var ELLIPSE_CENTER_DIV_TOP_POSITION = 200;
+	        var MAJOR_SEMIAXIS = 230;
+    		var MINOR_SEMIAXIS = 130;
+	        var angle = 0;
+	        var theta = angle * Math.PI / 180;
+	        var ellipseDivs = [];
+	        setInterval(function () { moveEllipseDiv(ellipseDivs) }, 100);
+    		
+    		function makeDivShiny(div) {	
+				div.style.backgroundColor = generateRandomColor();
+	        	div.style.color = generateRandomColor();          
+	        	div.innerHTML = "div";
+	        	div.style.borderColor = generateRandomColor();
+			}
+
+			function generateRandomColor() {
+				var red = (Math.random() * 256) | 0;
+				var green = (Math.random() * 256) | 0;
+				var blue = (Math.random() * 256) | 0;
+
+				return "rgb(" + red + "," + green + "," + blue + ")";
+			}
+
+			function moveRectDiv(rectangularDivs) {
+	            for (var i = 0; i < rectangularDivs.length; i++) {
+	                if (rectangularDivs[i].direction == "R" && rectangularDivs[i].coordinates.x >= maxRectCoordinates.x) {
+	                    rectangularDivs[i].direction = "B";
+	                }
+	                else if (rectangularDivs[i].direction == "B" && rectangularDivs[i].coordinates.y >= maxRectCoordinates.y) {
+	                    rectangularDivs[i].direction = "L";
+	                }
+	                else if (rectangularDivs[i].direction == "L" && rectangularDivs[i].coordinates.x <= RECT_DIV_LEFT_POSITION) {
+	                    rectangularDivs[i].direction = "T";
+	                }
+	                else if (rectangularDivs[i].direction == "T" && rectangularDivs[i].coordinates.y <= RECT_DIV_TOP_POSITION) {
+	                    rectangularDivs[i].direction = "R";
+	                }
+	                if (rectangularDivs[i].direction == "R") {
+	                    rectangularDivs[i].coordinates.x += 10;
+	                }
+	                else if (rectangularDivs[i].direction == "B") {
+	                    rectangularDivs[i].coordinates.y += 10;
+	                }
+	                else if (rectangularDivs[i].direction == "L") {
+	                    rectangularDivs[i].coordinates.x -= 10;
+	                }
+	                else if (rectangularDivs[i].direction == "T") {
+	                    rectangularDivs[i].coordinates.y -= 10;
+	                }
+	                rectangularDivs[i].element.style.position = 'absolute';
+	                rectangularDivs[i].element.style.left = rectangularDivs[i].coordinates.x + 'px';
+	                rectangularDivs[i].element.style.top = rectangularDivs[i].coordinates.y + 'px';
+	            }
+	        }
+	        
+	        function moveEllipseDiv(ellipseDivs) {
+	        	for (var i = 0; i < ellipseDivs.length; i++) {
+			        ellipseDivs[i].theta += 0.1;
+			        var left = parseInt(ELLIPSE_CENTER_DIV_LEFT_POSITION + MAJOR_SEMIAXIS * Math.sin(ellipseDivs[i].theta));
+			        ellipseDivs[i].element.style.position='absolute';
+			        ellipseDivs[i].element.style.left = left + "px";
+
+			        var top = parseInt(ELLIPSE_CENTER_DIV_TOP_POSITION - MINOR_SEMIAXIS * Math.cos(ellipseDivs[i].theta));
+			        ellipseDivs[i].element.style.top = top + "px";
+			    }
+   			}
+
+    		function add(movingType) {
+    			var div = document.createElement("div");
+    			div.classList.add("shiny-div");
+    			var container = document.getElementById("wrapper");
+    			makeDivShiny(div);
+    			if (movingType === "rect") {
+    				div.style.position = "absolute";
+	            	div.style.left = RECT_DIV_LEFT_POSITION + "px";
+	            	div.style.top = RECT_DIV_TOP_POSITION + "px";
+	            	rectangularDivs.push({element:div, coordinates: { x: RECT_DIV_LEFT_POSITION, y: RECT_DIV_TOP_POSITION }, direction: "R" });
+    			}
+
+    			if (movingType === "ellipse") {
+    				div.style.position = "absolute";
+    				div.style.left = ELLIPSE_CENTER_DIV_LEFT_POSITION + "px";
+	                div.style.top = ELLIPSE_CENTER_DIV_TOP_POSITION + "px";
+	                ellipseDivs.push({ element: div, theta: 0 });
+    			}
+    			container.appendChild(div);
+    		}
+
+
+
+    		return {
+	            add: add
+	        };
+    	})();
+
+		//add element with rectangular movement on click button
+		function onRectClick() {
+			movingShapes.add("rect"); 
+		}
+
+		//add element with ellipse movement on click button
+		function onEllipseClick() {
+			movingShapes.add("ellipse");
+		}	
+		
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>02.5 Divs moves in circular path</title>
+	<style>
+		#wrapper, body, html {
+			min-height: 100%;
+			background: #ccc;
+		}
+		.shiny-div	{
+			width:40px;
+			height:40px;
+			position:absolute;
+			border-width:2px;
+			border-style: solid;
+		}
+
+	</style>
+</head>
+<body>
+	<div id="wrapper">
+		<a href="#" id="btn-start-shiny" onclick="onStartShinyButtonClick(event)">Start</a>
+		<a href="#" id="btn-stop-shiny" onclick="onStopShinyButtonClick(event)">Stop</a>
+	</div>
+	<script>
+		var wrapper = document.getElementById("wrapper");
+		var count = 5;
+		var divs = document.getElementsByClassName("shiny-div");
+		var timer;
+		var maxWidth = screen.width-100;
+		var maxHeight = screen.height-150;
+		var currentAngle = 5;
+		var angleStep = 5;
+		var radius=100;
+
+		generateShinyDivs(count);
+
+		function generateShinyDivs(count) {
+
+			for (var i = 0; i < count; i++) {
+				var div = document.createElement("div");
+				div.classList.add("shiny-div");
+				makeDivShiny(div);
+				wrapper.appendChild(div);
+				console.log(wrapper.innerHTML);
+			}
+		}
+
+		function makeDivShiny(div) {	
+			currentAngle += angleStep;
+			var topPos = parseInt(maxHeight / 5); 
+			var x = topPos + Math.cos(currentAngle) * radius;
+			div.style.top = x + "px";
+			var left = parseInt(maxWidth / 5);
+			var y = left + Math.sin(currentAngle) * radius;
+			div.style.left = y + "px";
+			div.style.backgroundColor = generateRandomColor();			
+			div.style.borderColor=generateRandomColor();
+		}
+
+		function generateRandomColor() {
+			var red = (Math.random() * 256) | 0;
+			var green = (Math.random() * 256) | 0;
+			var blue = (Math.random() * 256) | 0;
+
+			return "rgb(" + red + "," + green + "," + blue + ")";
+		}
+
+		function onStartShinyButtonClick(e) {
+			if (!e) e = window.event;
+
+			timer = setInterval(function () {
+				for (var i = 0, len = divs.length; i < len; i++) {
+					makeDivShiny(divs[i]);
+				}
+			}, 50);
+
+			if (e.preventDefault) {
+				e.preventDefault();
+			}
+			return false;
+		}
+
+		function onStopShinyButtonClick(e) {
+			if (!e) e = window.event;
+
+			clearInterval(timer);
+			document.getElementById("btn-stop-shiny").disabled = true;
+
+			if (e.preventDefault) {
+				e.preventDefault();
+			}
+			return false;
+		}
+
+	</script>
+</body>
+</html>

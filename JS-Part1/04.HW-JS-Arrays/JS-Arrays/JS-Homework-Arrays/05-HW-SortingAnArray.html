@@ -1,0 +1,97 @@
+﻿<!-- Sorting an array means to arrange its elements in increasing order. 
+Write a script to sort an array. Use the "selection sort" algorithm: 
+Find the smallest element, move it at the first position, find the smallest from the rest, move it at the second position, etc.
+Hint: Use a second array
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>JS-Arrays</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <style>
+	input[type=text]{
+		border:1px solid black;
+		padding:5px 15px;
+		background-color:black;
+		color:white;
+		font-family:Consolas;		   
+		margin-bottom:5px;
+	}
+
+	a{
+		color:black;
+		border:1px solid black;
+		padding:5px 15px;						
+		text-decoration:none;	   
+		display:inline-block;		 
+		margin: 15px 0;
+	}
+
+	a:hover{
+		text-decoration:underline;
+	}
+</style>
+</head>
+<body>
+    <fieldset>
+        <legend>Sorting an array:</legend>		
+        <a href="#" onclick="onButtonClick()">Sort</a>
+	    <div id="console">
+	    </div>
+    </fieldset>
+    <script src="scripts/js-console.js"></script>
+    <script>
+
+        function onButtonClick() {
+			<!-- script starts here with sample array-->
+            var array = [3, 2, 3, 4, 2, 2, 4];
+
+            for (var i in array) {
+
+                jsConsole.write(array[i] + " ");
+            }
+
+            var smallest = 0;
+            var currentItem = 0;
+            var indexItem = 0;
+            var change = false;
+            <!-- check every item of array with array with next item to end -->
+			<!--use nested loop to check-->
+            for (var i = 0; i < array.length-1; i++)
+            {
+                currentItem = array[i];
+            
+                for (var j = i + 1; j < array.length; j++)
+                {
+                    if (currentItem > array[j])
+                    {
+                        smallest = array[j];
+                        currentItem = smallest;
+                        indexItem = j;
+                        change = true;
+                    }
+                }
+                if (change)
+                {
+                    array[indexItem] = array[i];
+                    array[i] = smallest;
+                    change = false;
+                }
+            }
+        
+            var printSequence = "";
+            
+            for (var i = 0; i < array.length; i++)
+            {
+                printSequence += array[i];
+                printSequence += " ";
+            }
+
+			<!-- print the result-->
+            jsConsole.writeLine("The order is "+printSequence);
+			<!-- ends script-->
+        }
+    </script>
+    
+</body>
+</html>

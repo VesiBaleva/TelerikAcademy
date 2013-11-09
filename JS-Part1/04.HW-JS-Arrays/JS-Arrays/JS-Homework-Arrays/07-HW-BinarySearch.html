@@ -1,0 +1,117 @@
+﻿<!-- Write a program that finds the index of given element in a sorted array of integers by using the binary search algorithm 
+(find it in Wikipedia)
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>JS-Arrays</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <style>
+	input[type=text]{
+		border:1px solid black;
+		padding:5px 15px;
+		background-color:black;
+		color:white;
+		font-family:Consolas;		   
+		margin-bottom:5px;
+	}
+
+	a{
+		color:black;
+		border:1px solid black;
+		padding:5px 15px;						
+		text-decoration:none;	   
+		display:inline-block;		 
+		margin: 15px 0;
+	}
+
+	a:hover{
+		text-decoration:underline;
+	}
+</style>
+</head>
+<body>
+    <fieldset>
+        <legend>BinarySearch:</legend>
+        <label for="tb-number">Enter an element:</label>
+	    <input type="text" id="tb-number"/>
+	    <br />		
+        <a href="#" onclick="onButtonClick()">Find index</a>
+	    <div id="console">
+	    </div>
+    </fieldset>
+    <script src="scripts/js-console.js"></script>
+    <script>
+
+        function onButtonClick() {
+           <!-- starts from here with sample array-->
+            var array = [18, 45, 21, 32, 64, 85];
+            var smallest = 0;
+            var currentItem = 0;
+            var indexItem = 0;
+            var change = false;
+            
+            jsConsole.write("The input array: ");
+			<!-- print the input-->
+            for (var i in array) {
+                jsConsole.write(array[i] + " ");
+            }
+            jsConsole.writeLine("");
+			<!-- start sorting the input -->
+            for (var i = 0; i < array.length - 1; i++)
+            {
+                currentItem = array[i];
+
+                for (var j = i + 1; j < array.length; j++)
+                {
+                    if (currentItem > array[j])
+                    {
+                        smallest = array[j];
+                        currentItem = smallest;
+                        indexItem = j;
+                        change = true;
+                    }
+                }   
+                if (change)
+                {
+                    array[indexItem] = array[i];
+                    array[i] = smallest;
+                    change = false;
+                }
+            }
+
+        <!-- asign the element from the array-->        
+        var num = jsConsole.readInteger("#tb-number");
+
+        var end = array.length - 1;
+        var start = 0;
+		<!--loop with divide array in half -->
+        while (end >= start)
+        {
+            var half = parseInt((start + end) / 2);
+            if (array[half] < num)
+            {
+                start = half + 1;
+            }
+            else if (array[half] > num)
+            {
+                end = half - 1;
+            }
+            else
+            {
+				<!-- print the result when the element is finded-->
+                jsConsole.write("Sorted: ");
+                for (var i in array) {
+                    jsConsole.write(array[i] + " ");
+                }
+                jsConsole.writeLine("");
+                jsConsole.writeLine("The index of element "+ num +" : " + half);
+                break;
+            }
+        }
+			<!-- script ends here-->
+        }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Demo module for working to work with DOM</title>
+    <style type="text/css">
+        ul {
+            width:100px;            
+        }
+    </style>
+</head>
+<body>
+    <nav id="main-nav">
+        <ul>
+            <li>nav Item 1</li>
+            <li>nav Item 2</li>
+            <li>nav Item 3</li>
+            <li>nav Item 4</li>
+        </ul>
+    </nav>
+    <div id="container">Some empty container        
+    </div>
+    <div id="wrapper">
+        <ul id="table-of-contents">
+            <li><a class="button" href="#">Chapter 1.</a></li>
+            <li><a class="button" href="#">Chapter 2.</a></li>
+            <li><a class="button" href="#">Chapter 3.</a></li>
+            <li><a class="button" href="#">Chapter 4.</a></li>
+        </ul>        
+    </div>    
+    <button onclick="onButtonAdd()">Click to add Chapter 5</button>
+    <button onclick="onButtonRemove()">Remove last Chapter</button>
+    <button onclick="onButtonAddMore()">Add More Elements</button>    
+    <p>Try to click!</p>
+    <script>
+        //start here to create module
+        var domModule = (function () {
+
+            var MAX_BUFFER_SIZE = 100;
+            var bufferElements = [];
+
+            function getElement(selector) {
+                return document.querySelector(selector);        
+            }
+
+            function getElements(selector) {
+                return document.querySelectorAll(selector);
+            }
+
+            function addElement(tagName, parentSelector) {
+                var parent = getElement(parentSelector);
+                parent.appendChild(tagName);
+            }
+
+            function removeElements(parentSelector, childSelector) {
+                var elementsToRemove=getElements(parentSelector + " " + childSelector)
+
+                for (var i=0; i<elementsToRemove.length;i++) {
+                    elementsToRemove[i].parentNode.removeChild(elementsToRemove[i]);
+                }
+            }
+
+            function attachEventHandler(selector, eventType, handler) {
+                var elements = getElements(selector);
+                for (var i = 0; i < elements.length; i++) {
+                    if (elements[i].addEventListener) {
+                        elements[i].addEventListener(eventType, handler, false);
+                    } else {
+                        element[i].attachEvent("on" + eventType, handler);
+                    }
+                }       
+            }
+
+            function addElementToBuffer(parentSelector, tagName)  {
+                if (!bufferElements[parentSelector]) {
+                    bufferElements[parentSelector] = document.createDocumentFragment();
+                }
+
+                bufferElements[parentSelector].appendChild(tagName);
+
+                if (bufferElements[parentSelector].childNodes.length === MAX_BUFFER_SIZE) {
+                    var parent = getElement(parentSelector);
+                    parent.appendChild(bufferElements[parentSelector]);
+                    bufferElements[parentSelector] = null;
+                }
+            }
+
+            function addAllElementsToBuffer() {
+                for (var item in bufferElements) {
+                    var parent = getElement(item);
+                    parent.appendChild(bufferElements[item]);
+                    bufferElements[item] = null;
+                }
+            }
+
+            return {
+                appendChild: addElement,
+                removeChild: removeElements,
+                addHandler: attachEventHandler,
+                appendToBuffer: addElementToBuffer,
+                appendAllToBuffer: addAllElementsToBuffer
+            };
+        })(); //end here declare module
+
+        //start with sample given in presentation
+        var div = document.createElement("div");
+
+        //change the div
+        div.style.backgroundColor = "#ff0000";
+        div.style.width = "100px";
+        div.style.height = "80px";
+        div.innerHTML ="JS added div";
+
+        domModule.appendChild(div,"#wrapper");
+
+        //remove the first li from each ul
+        domModule.removeChild("ul","li:first-child"); 
+
+        domModule.addHandler("a.button", "click", function(){alert("Clicked")});
+
+        domModule.appendToBuffer("#container", div.cloneNode(true));
+
+        //create navItem element to implement next appendToBuffer function        
+        var navItem = document.createElement("li");
+        navItem.innerHTML ="JS added navItem";
+        domModule.appendToBuffer("#main-nav ul", navItem);
+
+         // append all not still appended elements in buffer
+        domModule.appendAllToBuffer() //end here with sample in presentation
+
+        //implement any another function using module for dom 
+        function onButtonAdd() {
+            var element = document.createElement("li");
+            element.innerHTML ='<a class="button" href="#">Chapter</a>';
+            domModule.appendChild(element,"#table-of-contents");
+        }
+
+        function onButtonRemove() {
+            domModule.removeChild("#table-of-contents","li:last-child");
+        }
+
+        domModule.addHandler("ul", "click", function(event){
+            event.currentTarget.style.backgroundColor = getRandomColor();
+        });
+        
+        function getRandomColor() {
+                    return 'rgba(' + [
+                    getRandomInt(0, 255),
+                    getRandomInt(0, 255),
+                    getRandomInt(0, 255),
+                    getRandomInt(1, 10) / 10
+                  ].join(', ') + ')';
+                }
+
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        function onButtonAddMore() {            
+            for (var i = 0; i < 300; i++) {
+                    var div = document.createElement("div");
+                    div.innerHTML ="div " + i;
+                    domModule.appendToBuffer("#wrapper", div);
+
+                    if (i % 2 === 0) {
+                        var li = document.createElement("li");
+                        li.innerHTML = '<a class="button" href="#">Item ' + i + '.</a>';
+                        domModule.appendToBuffer("#table-of-contents", li);
+                    }
+                }
+        }
+
+    </script>
+</body>
+</html>

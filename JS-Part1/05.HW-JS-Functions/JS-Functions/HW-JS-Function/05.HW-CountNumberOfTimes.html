@@ -1,0 +1,48 @@
+﻿<!-- Write a function that counts how many times given number appears in given array.
+ Write a test function to check if the function is working correctly.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Count number of times</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <label for="tb-numbers">Enter numbers, separated by comma ",": </label>
+	<input id="tb-numbers" type="text" class="js-console-input" />
+    <label for="tb-num">Number: </label>
+	<input id="tb-num" type="text" class="js-console-input" />
+	<a href="#" class="js-console-btn" onclick="onBtnClick()">Count</a>
+	<div id="js-console"></div>
+	<script src="scripts/js-console.js"></script>
+	<script>
+        
+        function countNumberAppearans(arr,number)
+        {
+            var count = 0;
+            <!-- compare every element from array to entered number -->
+            for (var i = 0; i < arr.length; i++)
+            {
+                if (arr[i] === number) count++;
+            }
+            return count;
+        }
+
+        function onBtnClick() 
+        {
+            var arr = jsConsole.readNumbersArray("#tb-numbers",',');
+            
+            for (var i = 0; i < arr.length;i++)
+            {
+                jsConsole.write(arr[i] + " ");                
+            }
+            
+            var number = jsConsole.readFloat("#tb-num");
+            jsConsole.writeLine();
+            jsConsole.writeLine("Your number "+number+" appears "+countNumberAppearans(arr,number)+" times in this array.");
+
+        }
+
+	</script>
+</body>
+</html>

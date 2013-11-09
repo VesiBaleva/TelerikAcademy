@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>JS-Operators and Expressions</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <style>
+	input[type=text]{
+		border:1px solid black;
+		padding:5px 15px;
+		background-color:black;
+		color:white;
+		font-family:Consolas;		   
+		margin-bottom:5px;
+	}
+
+	a{
+		color:black;
+		border:1px solid black;
+		padding:5px 15px;						
+		text-decoration:none;	   
+		display:inline-block;		 
+		margin: 15px 0;
+	}
+
+	a:hover{
+		text-decoration:underline;
+	}
+</style>
+</head>
+<body>
+    <fieldset>
+        <legend>What number do you want to check?</legend>
+        <label for="tb-number">Enter any number: </label>
+	    <input type="text" id="tb-number"/>
+	    <br />			
+        <a href="#" onclick="onButtonClick()">Find bit 3</a>
+	    <div id="console">
+	    </div>
+    </fieldset>
+    <script src="scripts/js-console.js"></script>
+    <script>
+        function onButtonClick() {
+            var number = jsConsole.read("#tb-number");                   
+                       
+            var num = Math.abs(number);
+            num = Math.floor(parseInt(num));
+            var mask = 8;
+            var isThirdBit1 = num & mask;
+            if (isThirdBit1 == mask) {
+                jsConsole.writeLine("The third bit is 1 of number: " + number);
+            }
+            else {
+                jsConsole.writeLine("The third bit is 0 of number: " + number);
+            }
+
+
+        }
+    </script>
+
+</body>
+</html>
+

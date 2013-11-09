@@ -1,0 +1,52 @@
+﻿<!-- Write a function that returns the last digit of given integer as an English word. Examples: 512  "two", 1024  "four", 12309  "nine"
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Last digit of given integer</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+	<label for="tb-number">Number: </label>
+	<input id="tb-number" type="text" class="js-console-input" />
+	<a href="#" class="js-console-btn" onclick="onBtnClick()">Last digit</a>
+	<div id="js-console"></div>
+	<script src="scripts/js-console.js"></script>
+	<script>
+
+	    function onBtnClick() {
+	        var number = jsConsole.readInteger("#tb-number");
+
+	        jsConsole.writeLine("Number: "+number +" -> " + lastDigitOfInt(number));
+	        jsConsole.writeLine("----------------");
+
+	    }
+	    function lastDigitOfInt(number) {
+	        
+	        var lastDigitName = "";
+	        var lastDigit;
+			
+			<!-- find last digit - remainder after divided-->
+			<!-- use Math.abs to eliminate negative numbers-->
+	        lastDigit =parseInt(Math.abs(number) % 10);
+			
+			<!-- use switch for digit in english-->
+	        switch (lastDigit)
+	        {
+	            case 0: lastDigitName = "zero"; break;
+	            case 1: lastDigitName = "one"; break;
+	            case 2: lastDigitName = "two"; break;
+	            case 3: lastDigitName = "three"; break;
+	            case 4: lastDigitName = "four"; break;
+	            case 5: lastDigitName = "five"; break;
+	            case 6: lastDigitName = "six"; break;
+	            case 7: lastDigitName = "seven"; break;
+	            case 8: lastDigitName = "eight"; break;
+	            case 9: lastDigitName = "nine"; break;
+	        }
+	        return lastDigitName;
+	    }
+
+	</script>
+</body>
+</html>

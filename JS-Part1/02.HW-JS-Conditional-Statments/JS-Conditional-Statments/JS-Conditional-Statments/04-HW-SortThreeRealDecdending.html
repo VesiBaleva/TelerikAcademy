@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>JS-Conditional-Statments</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <style>
+	input[type=text]{
+		border:1px solid black;
+		padding:5px 15px;
+		background-color:black;
+		color:white;
+		font-family:Consolas;		   
+		margin-bottom:5px;
+	}
+
+	a{
+		color:black;
+		border:1px solid black;
+		padding:5px 15px;						
+		text-decoration:none;	   
+		display:inline-block;		 
+		margin: 15px 0;
+	}
+
+	a:hover{
+		text-decoration:underline;
+	}
+</style>
+</head>
+<body>
+    <fieldset>
+        <legend>Three real values:</legend>
+        <label for="tb-number1">Enter first:</label>
+	    <input type="text" id="tb-number1"/>
+	    <br />			
+        <label for="tb-number2">Enter second:</label>
+	    <input type="text" id="tb-number2"/>
+	    <br />		
+        <label for="tb-number3">Enter third:</label>
+	    <input type="text" id="tb-number3"/>
+	    <br />		
+        <a href="#" onclick="onButtonClick()">Sort</a>
+	    <div id="console">
+	    </div>
+    </fieldset>
+    <script src="scripts/js-console.js"></script>
+    <script>
+        function onButtonClick() {
+
+            jsConsole.writeLine("Sorting in descending order: ");
+            var number1 = jsConsole.readFloat("#tb-number1");
+            var number2 = jsConsole.readFloat("#tb-number2");
+            var number3 = jsConsole.readFloat("#tb-number3");
+
+            var first=0;
+            var second=0;
+            var third=0;
+
+            if (number1 <= number2 && number2 <= number3) {
+                first = number1;
+                second = number2;
+                third = number3;
+            }
+            else if (number1 <= number3 && number3 <= number2) {
+                first = number1;
+                second = number3;
+                third = number2;
+            }
+            else if (number3<= number1 && number1<= number2) {
+                first = number3;
+                second = number1;
+                third = number2;
+            }
+            else if (number3 <= number2 && number2 <= number1) {
+                first = number3;
+                second = number2;
+                third = number1;
+            }
+            else if (number2 <= number1 && number1 <= number3) {
+                first = number2;
+                second = number1;
+                third = number3;
+            }
+            else if (number2 <= number3 && number3 <= number1) {
+                first = number2;
+                second = number3;
+                third = number1;
+            }
+            else {
+                jsConsole.writeLine("The program can not order!!!");
+            }
+            jsConsole.writeLine("The result is sorted: "+first+" "+second+" "+ third);
+        }
+    </script>
+
+</body>
+</html>

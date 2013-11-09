@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>JS-Arrays</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <style>
+	input[type=text]{
+		border:1px solid black;
+		padding:5px 15px;
+		background-color:black;
+		color:white;
+		font-family:Consolas;		   
+		margin-bottom:5px;
+	}
+
+	a{
+		color:black;
+		border:1px solid black;
+		padding:5px 15px;						
+		text-decoration:none;	   
+		display:inline-block;		 
+		margin: 15px 0;
+	}
+
+	a:hover{
+		text-decoration:underline;
+	}
+</style>
+</head>
+<body>
+    <fieldset>
+        <legend>Maximal increasing sequence:</legend>		
+        <a href="#" onclick="onButtonClick()">Find</a>
+	    <div id="console">
+	    </div>
+    </fieldset>
+    <script src="scripts/js-console.js"></script>
+    <script>
+
+        function onButtonClick() {
+            var array = [3, 2, 3, 4, 2, 2, 4];
+            
+            var countInc = 1;
+            var endSecIndex = 0;
+            var maxCountInc = 0;
+
+            for (var i = 0; i < array.length - 1; i++)
+            {
+                if (array[i] < array[i + 1])
+                {
+                    countInc += 1;
+                    if (countInc > maxCountInc)
+                    {
+                        maxCountInc = countInc;
+                        endSecIndex = i + 1;
+                    }
+                }
+                else
+                {
+                    countInc = 1;
+                }
+            }
+        
+            var startSecIndex = endSecIndex - maxCountInc + 1;
+            var printSequence = "";
+        
+            for (var i = 0; i < maxCountInc; i++, startSecIndex++)
+            {
+                printSequence += array[startSecIndex];
+                printSequence += " ";
+            }
+            for (var i in array) {
+
+                jsConsole.write(array[i]+" ");
+            }
+
+            jsConsole.writeLine("-> "+printSequence);
+        }
+    </script>
+    
+</body>
+</html>

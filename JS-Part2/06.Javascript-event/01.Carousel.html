@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="Carousel">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Carousel</title>
+        <link rel="stylesheet" href="css/style.css">        
+    </head>
+    <body>
+
+        <article class="carousel carousel-animated carousel-demo">
+
+    		<button class="carousel-arrow-left">&lt;</button>
+
+    		<div class="carousel-panels">
+        		<section class="carousel-panel">
+            		<img src="images/flower1.jpg" width="400" height="300" alt="dog" />
+        		</section>
+        		<section class="carousel-panel">
+            		<img src="images/flower2.jpg" width="400" height="300" alt="cat" />
+        		</section>
+        		<section class="carousel-panel">
+            		<img src="images/flower3.png" width="400" height="299" alt="dog" />
+        		</section>        		
+    		</div>
+
+    		<button class="carousel-arrow-right">&gt;</button>
+		</article>
+
+		<script>
+			[].slice.call(document.querySelectorAll('.carousel')).forEach(function(carousel) {
+		    var panels = carousel.querySelector('.carousel-panels'),
+		        totalPanels = panels.querySelectorAll('.carousel-panel').length,
+		        currentPanel = 0;
+
+		    function slideBy(delta) {
+		        currentPanel = (currentPanel + delta + totalPanels) % totalPanels;
+		        panels.style.left = -(currentPanel * 100) + '%';
+		    }
+
+		    carousel.querySelector('.carousel-arrow-left').addEventListener('click', function() {
+		        slideBy(-1);
+		    });
+
+		    carousel.querySelector('.carousel-arrow-right').addEventListener('click', function() {
+		        slideBy(1);
+		    });
+		});
+		</script>
+    </body>
+</html>

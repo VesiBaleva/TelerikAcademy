@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>JS-Operators and Expressions</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <style>
+	input[type=text]{
+		border:1px solid black;
+		padding:5px 15px;
+		background-color:black;
+		color:white;
+		font-family:Consolas;		   
+		margin-bottom:5px;
+	}
+
+	a{
+		color:black;
+		border:1px solid black;
+		padding:5px 15px;						
+		text-decoration:none;	   
+		display:inline-block;		 
+		margin: 15px 0;
+	}
+
+	a:hover{
+		text-decoration:underline;
+	}
+</style>
+</head>
+<body>
+    <fieldset>
+        <legend>What your number?</legend>
+        <label for="tb-number">Enter any positive number (1-100): </label>
+	    <input type="text" id="tb-number"/>
+	    <br />			
+        <a href="#" onclick="onButtonClick()">Check</a>
+	    <div id="console">
+	    </div>
+    </fieldset>
+    <script src="scripts/js-console.js"></script>
+    <script>
+        function onButtonClick() {
+            var number = jsConsole.read("#tb-number");
+            var prime = true;
+
+            if (number > 0 && number <= 100) {
+
+                var maxDivider = parseInt(Math.sqrt(number));
+
+                for (var i = 2; i < maxDivider; i++) {
+
+                    if (number % i == 0) {
+                        prime = false;
+                    }
+
+                }
+
+            } else {
+
+                jsConsole.writeLine("Out of range!");
+
+            }
+
+            jsConsole.writeLine("Your number is prime? -> "+prime);
+        }
+    </script>
+
+</body>
+</html>
+

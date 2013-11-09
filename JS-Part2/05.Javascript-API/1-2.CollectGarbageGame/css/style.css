@@ -1,0 +1,9 @@
+body {
+            font-family: "Segoe UI","Arial",sans-serif;
+            font-size: 62.5%;
+            background-color: white;
+        }
+
+        td {
+            text-align: center;
+        }

@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JS-Conditional-Statments", "JS-Conditional-Statments\JS-Conditional-Statments.csproj", "{CF09D0FE-EADF-4349-9E04-2EF9B4CCDDAE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CF09D0FE-EADF-4349-9E04-2EF9B4CCDDAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF09D0FE-EADF-4349-9E04-2EF9B4CCDDAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF09D0FE-EADF-4349-9E04-2EF9B4CCDDAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF09D0FE-EADF-4349-9E04-2EF9B4CCDDAE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="The bounce Ball from JavaScript API">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>The bounce Ball from JavaScript API</title>
+        <style>
+			body, div, span {
+		        margin:0px;
+		        padding:0px;
+    		}
+
+    		#ball {
+		        width:25px;
+		        height:25px;
+
+		        border-radius:20px;
+		        background-color:brown;
+		       // display:inline-block;
+		        position:absolute;
+    		}
+        </style>
+    </head>
+    <body>
+		<canvas width="600" height="600">Canvas not supported</canvas>
+        <div id="ball"></div>
+ 		<script>
+			// the playground
+			var ctx = document.getElementsByTagName("canvas")[0].getContext("2d");
+			ctx.strokeStyle = "black";
+			ctx.lineWidth = 2;
+			ctx.fillStyle = "orange";
+			ctx.strokeRect(10, 10, 500, 400);
+
+			var ball = document.getElementById("ball");
+			var TOP_POS_MAX = 390;
+			var TOP_POS_MIN = 10;
+			var LEFT_POS_MAX = 490;
+			var LEFT_POS_MIN = 10;
+
+			var directionTop = 1;
+			var directionLeft = 1;
+			var leftPosCurrent = 200;
+			var topPosCurrent = 200;
+
+			setInterval(function () {
+				topPosCurrent += directionTop;
+				leftPosCurrent += directionLeft;
+				if (topPosCurrent == TOP_POS_MAX) {
+					directionTop *= -1;
+				}
+
+				if (leftPosCurrent == LEFT_POS_MAX) {
+					directionLeft *= -1;
+				}
+
+				if (topPosCurrent == TOP_POS_MIN) {
+					directionTop *= -1;
+				}
+
+				if (leftPosCurrent == LEFT_POS_MIN) {
+					directionLeft *= -1;
+				}
+
+				ball.style.left = leftPosCurrent + "px";
+				ball.style.top = topPosCurrent + "px";
+			}, 10);
+    </script>
+    </body>
+</html>

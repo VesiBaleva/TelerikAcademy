@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>JS-Loops</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <style>
+	input[type=text]{
+		border:1px solid black;
+		padding:5px 15px;
+		background-color:black;
+		color:white;
+		font-family:Consolas;		   
+		margin-bottom:5px;
+	}
+
+	a{
+		color:black;
+		border:1px solid black;
+		padding:5px 15px;						
+		text-decoration:none;	   
+		display:inline-block;		 
+		margin: 15px 0;
+	}
+
+	a:hover{
+		text-decoration:underline;
+	}
+</style>
+</head>
+<body>
+    <fieldset>
+        <legend>Objects properties:</legend>
+	
+        <a href="#" onclick="onButtonClick()">Print smallest and largest</a>
+	    <div id="console">
+	    </div>
+    </fieldset>
+    <script src="scripts/js-console.js"></script>
+    <script>
+
+        function onButtonClick() {
+            
+            jsConsole.writeLine("Document------------------->")
+            var item = document;
+
+            var smalles = "zzzz";
+            var largest = "aaaa";
+
+            for (var property in item) {
+                if (smalles > property) {
+                    
+                    smalles = property;
+                }
+                if (largest < property) {
+                    
+                    largest = property;
+                }
+            }
+            jsConsole.writeLine("smallest -> " + smalles);
+            jsConsole.writeLine("largest -> " + largest);
+
+            jsConsole.writeLine("Window------------------->")
+            var item = window;
+
+            var smalles = "zzzz";
+            var largest = "aaaa";
+
+            for (var property in item) {
+                if (smalles > property) {
+
+                    smalles = property;
+                }
+                if (largest < property) {
+
+                    largest = property;
+                }
+            }
+            jsConsole.writeLine("smallest -> " + smalles);
+            jsConsole.writeLine("largest -> " + largest);
+
+            jsConsole.writeLine("Navigator------------------->")
+            var item = navigator;
+
+            var smalles = "zzzz";
+            var largest = "aaaa";
+
+            for (var property in item) {
+                if (smalles > property) {
+
+                    smalles = property;
+                }
+                if (largest < property) {
+
+                    largest = property;
+                }
+            }
+            jsConsole.writeLine("smallest -> " + smalles);
+            jsConsole.writeLine("largest -> " + largest);
+        }
+    </script>
+
+</body>
+</html>

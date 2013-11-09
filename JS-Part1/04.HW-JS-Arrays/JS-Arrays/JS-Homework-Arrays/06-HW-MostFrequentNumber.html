@@ -1,0 +1,84 @@
+﻿<!-- Write a program that finds the most frequent number in an array. Example:
+	{4, 1, 1, 4, 2, 3, 4, 4, 1, 2, 4, 9, 3}  4 (5 times)
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>JS-Arrays</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <style>
+	input[type=text]{
+		border:1px solid black;
+		padding:5px 15px;
+		background-color:black;
+		color:white;
+		font-family:Consolas;		   
+		margin-bottom:5px;
+	}
+
+	a{
+		color:black;
+		border:1px solid black;
+		padding:5px 15px;						
+		text-decoration:none;	   
+		display:inline-block;		 
+		margin: 15px 0;
+	}
+
+	a:hover{
+		text-decoration:underline;
+	}
+</style>
+</head>
+<body>
+    <fieldset>
+        <legend>Most frequent number:</legend>		
+        <a href="#" onclick="onButtonClick()">Find</a>
+	    <div id="console">
+	    </div>
+    </fieldset>
+    <script src="scripts/js-console.js"></script>
+    <script>
+
+        function onButtonClick() {
+			<!-- script starts with sample array-->
+            var array = [4, 1, 1, 4, 2, 3, 4, 4, 1, 2, 4, 9, 3];
+			<!-- print input array -->
+            for (var i in array) {
+
+                jsConsole.write(array[i]+" ");
+            }
+
+            jsConsole.writeLine("");
+
+            var mostFreqNum;
+            var countFreqNum = 0;
+            var maxCountFreqNum=0;
+            
+			<!-- count every element-->
+            for (var i = 0; i < array.length; i++)
+            {
+                for (var j = 0; j < array.length; j++)
+                {
+                    if (array[i] == array[j])
+                    {
+                        countFreqNum++;
+                    }
+                }
+				
+				<!-- compare to temporary maximal count-->
+                if (countFreqNum > maxCountFreqNum)
+                {
+                    maxCountFreqNum = countFreqNum;
+                    mostFreqNum = array[i];
+                }
+                countFreqNum = 0;
+            }
+			<!-- print the result -->
+            jsConsole.writeLine("The most frequent number in the array is "+ mostFreqNum + " with " + maxCountFreqNum + " times.");
+
+        }
+    </script>
+    
+</body>
+</html>

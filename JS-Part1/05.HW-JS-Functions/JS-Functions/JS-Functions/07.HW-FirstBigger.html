@@ -1,0 +1,80 @@
+﻿<!-- Write a Function that returns the index of the first element in array that is bigger than its neighbors, or -1, if there’s no such element.
+Use the function from the previous exercise.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Check integer is bigger than its two neighbors</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <label for="tb-numbers">Enter numbers, separated by comma ",": </label>
+	<input id="tb-numbers" type="text" class="js-console-input" />
+    <a href="#" class="js-console-btn" onclick="onBtnClick()">First bigger</a>
+	<div id="js-console"></div>
+	<script src="scripts/js-console.js"></script>
+	<script>
+        
+		<!-- this function is declare the same as previous task-->
+	    function checkThanNeighbors(arr,position)
+	    {
+                if (position === 0 || position === arr.length - 1)
+	            {
+	                return false;
+	            }
+	            else
+	            {
+                    if (arr[position] > arr[position - 1] && arr[position] > arr[position + 1])
+	                {
+	                    return true;
+	                }
+	                else
+	                {
+                        return false;
+	                }   
+	            }               
+
+	    }
+		<!-- return -1 when neither element is not bigger than its two neighbors -->
+		<!-- or return position -->
+	    function indexOfFirstBigger(arr)
+	    {
+	        var index = -1;
+	        
+	        for (var i = 0; i < arr.length; i++)
+	        {
+                if (checkThanNeighbors(arr, i))
+	            {
+                    index = i;
+                    break;
+	            }
+	        }
+            return  index;
+	    }
+
+        function onBtnClick() 
+        {
+            var arr = jsConsole.readNumbersArray("#tb-numbers",',');                     
+
+            for (var i = 0; i < arr.length; i++) {
+                jsConsole.write(arr[i] + " ");
+            }
+            jsConsole.writeLine();
+
+            var index = indexOfFirstBigger(arr);            
+
+            if (index === -1)
+            {
+                jsConsole.writeLine("No such element!");
+            }
+            else
+            {
+                jsConsole.writeLine("First bigger than neighbors is at position " + index + " -> " + arr[index]);
+            }            
+                      
+
+        }
+
+	</script>
+</body>
+</html>

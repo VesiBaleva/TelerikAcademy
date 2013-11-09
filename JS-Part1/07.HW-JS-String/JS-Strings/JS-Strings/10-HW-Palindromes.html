@@ -1,0 +1,51 @@
+﻿<!--Write a program that extracts from a given text all palindromes, e.g. "ABBA", "lamal", "exe".
+
+
+
+-->
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Working with strings</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    
+	<div id="js-console"></div>
+
+	<script src="scripts/js-console.js"></script>
+	<script>
+
+	    var strBuilder = buildStringBuilder();
+	    var text = "ABBA, lamal, exe";
+	    text = text.toLowerCase();
+	    text = text.replace(".", " ").replace("!", " ").replace("?", " ").replace(",", " ");
+	    var wordsArr = text.split(" ");
+	    for (var i = 0; i < wordsArr.length; i++) {
+	        strBuilder = buildStringBuilder();
+	        for (var j = wordsArr[i].length - 1; j >= 0 ; j--) {
+	            strBuilder.append(wordsArr[i][j]);
+	        }
+	        if (strBuilder.toString() == wordsArr[i]) {
+	            jsConsole.writeLine(wordsArr[i]);
+	        }
+	    }
+	    
+	    function buildStringBuilder() {
+	        return {
+	            strs: [],
+	            len: 0,
+	            append: function (str) {
+	                this.strs[this.len++] = str;
+	                return this;
+	            },
+	            toString: function () {
+	                return this.strs.join("");
+	            }
+	        };
+	    }
+
+	</script>
+</body>
+</html>

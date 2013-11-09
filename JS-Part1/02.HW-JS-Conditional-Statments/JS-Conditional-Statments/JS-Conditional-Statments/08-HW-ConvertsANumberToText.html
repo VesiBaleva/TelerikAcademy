@@ -1,0 +1,151 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>JS-Conditional-Statments</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <style>
+	input[type=text]{
+		border:1px solid black;
+		padding:5px 15px;
+		background-color:black;
+		color:white;
+		font-family:Consolas;		   
+		margin-bottom:5px;
+	}
+
+	a{
+		color:black;
+		border:1px solid black;
+		padding:5px 15px;						
+		text-decoration:none;	   
+		display:inline-block;		 
+		margin: 15px 0;
+	}
+
+	a:hover{
+		text-decoration:underline;
+	}
+</style>
+</head>
+<body>
+    <fieldset>
+        <legend>The number:</legend>
+        <label for="tb-number">Enter your number (0...999):</label>
+	    <input type="text" id="tb-number"/>
+	    <br />		
+        <a href="#" onclick="onButtonClick()">The Name</a>
+	    <div id="console">
+	    </div>
+    </fieldset>
+    <script src="scripts/js-console.js"></script>
+    <script>
+
+        function NumText(number)
+        {
+            var txt="" ; 
+            switch (number)
+            {
+                case 0: txt = "zero"; break;
+                case 1: txt = "one"; break;
+                case 2: txt = "two"; break;
+                case 3: txt = "three"; break;
+                case 4: txt = "four"; break;
+                case 5: txt = "five"; break;
+                case 6: txt = "six"; break;
+                case 7: txt = "seven"; break;
+                case 8: txt = "eight"; break;
+                case 9: txt = "nine"; break;
+                case 10: txt = "ten"; break;
+                case 11: txt = "eleven"; break;
+                case 12: txt = "twelve"; break;
+                case 13: txt = "thirteen"; break;
+                case 14: txt = "fourteen"; break;
+                case 15: txt = "fifteen"; break;
+                case 16: txt = "sixteen"; break;
+                case 17: txt = "seventeen"; break;
+                case 18: txt = "eighteen"; break;
+                case 19: txt = "nineteen"; break;
+                case 20: txt = "twenty"; break;
+                case 30: txt = "thirty"; break;
+                case 40: txt = "fourty"; break;
+                case 50: txt = "fifty"; break;
+                case 60: txt = "sixty"; break;
+                case 70: txt = "seventy"; break;
+                case 80: txt = "eighty"; break;
+                case 90: txt = "ninety"; break;
+            }
+            return txt;
+        }
+
+        function onButtonClick() {
+
+            
+            num = jsConsole.readFloat("#tb-number");
+            var textH = "hundred";
+            var textNumber = "";
+            var digit=0;
+            
+            if (num>=0 && num<=999)
+            {
+                if (num == 0)
+                {
+                    
+                    textNumber = NumText(digit);
+                    
+                }
+                else
+                {
+                    if (parseInt(num / 100) > 0)
+                    {
+                        digit = parseInt(num / 100);
+                        textNumber = NumText(digit) + " " + textH;
+                    }
+                    if (parseInt(num % 100) > 0)
+                    {
+                        digit =parseInt(num % 100);
+                        if (digit >= 1 && digit <= 11)
+                        {
+                            if (textNumber == "")
+                            {
+                                textNumber = textNumber + NumText(digit);
+                            }
+                            else
+                            {
+                                textNumber = textNumber + " and " + NumText(digit);
+                            }
+                        }
+                        else if (digit > 11 && digit <= 19)
+                        {
+                            textNumber = textNumber + " "+NumText(digit);
+                        }
+                        else if (digit > 19 && (digit % 10) > 0)
+                        {
+                            textNumber = textNumber + " " + NumText(parseInt(digit / 10) * 10) + " " + NumText(parseInt(digit % 10));
+                        }
+                        else
+                        {
+                            if (textNumber == "")
+                            {
+                                textNumber = textNumber + NumText(digit);
+                            }
+                            else
+                            {
+                                textNumber = textNumber + " and " + NumText(digit);
+                            }
+                        }
+                    }
+                }
+                
+                jsConsole.writeLine(num + " -> " + textNumber);
+            }
+            else
+            {
+                jsConsole.writeLine("Enter valid number in range!");
+            }
+
+
+        }
+    </script>
+
+</body>
+</html>

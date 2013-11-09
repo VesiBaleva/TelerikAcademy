@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>JS-Conditional-Statments</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <style>
+	input[type=text]{
+		border:1px solid black;
+		padding:5px 15px;
+		background-color:black;
+		color:white;
+		font-family:Consolas;		   
+		margin-bottom:5px;
+	}
+
+	a{
+		color:black;
+		border:1px solid black;
+		padding:5px 15px;						
+		text-decoration:none;	   
+		display:inline-block;		 
+		margin: 15px 0;
+	}
+
+	a:hover{
+		text-decoration:underline;
+	}
+</style>
+</head>
+<body>
+    <fieldset>
+        <legend>The Digit:</legend>
+        <label for="tb-digit">Enter your digit:</label>
+	    <input type="text" id="tb-digit"/>
+	    <br />		
+        <a href="#" onclick="onButtonClick()">The Name</a>
+	    <div id="console">
+	    </div>
+    </fieldset>
+    <script src="scripts/js-console.js"></script>
+    <script>
+        function onButtonClick() {
+
+            jsConsole.write("The name of the digit: ");
+            var digit = jsConsole.readFloat("#tb-digit");
+            var nameDigit = "";
+
+            switch (digit) {
+                case 0:
+                    nameDigit = "zero"; break;
+                case 1:
+                    nameDigit = "one"; break;
+                case 2:
+                    nameDigit = "two"; break;
+                case 3:
+                    nameDigit = "three"; break;
+                case 4:
+                    nameDigit = "four"; break;
+                case 5:
+                    nameDigit = "five"; break;
+                case 6:
+                    nameDigit = "six"; break;
+                case 7:
+                    nameDigit = "seven"; break;
+                case 8:
+                    nameDigit = "eight"; break;
+                case 9:
+                    nameDigit = "nine"; break;
+
+                default:
+                    nameDigit = "not digit"; break;            
+            }
+
+            jsConsole.writeLine(nameDigit);
+ 
+        }
+    </script>
+
+</body>
+</html>

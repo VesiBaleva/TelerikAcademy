@@ -1,0 +1,89 @@
+﻿<!-- Write a function that finds all the occurrences of word in a text
+The search can case sensitive or case insensitive
+Use function overloading
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Count word</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+	
+	<div id="js-console"></div>
+	<script src="scripts/js-console.js"></script>
+	<script>
+	    function getWordCount(str, word, isCaseSensitive) {
+			<!-- enter here when caseInsensitive and third argument is false, and also has two entered arguments-->
+	        function getWordCountCaseInsensitive(word) {
+	            var lowerStr = str.toLowerCase();
+	            var lowerWord = word.toLowerCase();
+	            var counter = 0;
+	            var position = 0;
+	            var isContain = true;
+
+
+	            while (isContain) {
+	                position = lowerStr.indexOf(lowerWord, position);
+	                if (position > 0) {
+	                    counter++;
+	                }
+	                else {
+	                    isContain = false;
+	                }
+	                position++;	                
+	            }
+
+	            return counter;
+	        }
+
+			<!-- enter here when caseSensitive and third argument is true-->
+	        function getWordCountCaseSensitive(word) {
+	            
+	            
+	            var counter = 0;
+	            var position = 0;
+	            var isContain = true;
+
+	            while (isContain) {
+	                position = str.indexOf(word, position);
+	                if (position > 0) {
+	                    counter++;
+	                }
+	                else {
+	                    isContain = false;
+	                }
+	                position++;
+	            }
+
+	            return counter;
+	        }
+			
+			<!-- use switch for numbers of arguments-->
+	        switch (arguments.length) {
+	            case 2:
+	                
+	                return getWordCountCaseInsensitive(word);
+	            case 3:
+	                return isCaseSensitive ? getWordCountCaseSensitive(word) : getWordCountCaseInsensitive(word);
+	        }
+	    }
+	    var str = "My name is Doncho Minkov and I am 23 years-old. doncho is a trainer. Name of our trainer is Doncho minkov.";
+	    jsConsole.writeLine(str);
+
+	    var word = "Doncho";
+		<!-- different calling cases of function getWordCount -->
+	    jsConsole.write("The result in case insensitive: ");
+	    jsConsole.writeLine(word + " -> " + getWordCount(str, word));
+
+	    jsConsole.write("The result in case sensitive: ");
+	    jsConsole.writeLine(word + " -> " + getWordCount(str, word, true));
+
+	    jsConsole.write("The result in case sensitive: ");
+	    jsConsole.writeLine(word.toLowerCase() + " -> " + getWordCount(str, word.toLowerCase(), true));
+
+	    jsConsole.write("The result in case insensitive: ");
+	    jsConsole.writeLine(word.toLowerCase() + " -> " + getWordCount(str, word.toLowerCase(), false));
+	</script>
+</body>
+</html>

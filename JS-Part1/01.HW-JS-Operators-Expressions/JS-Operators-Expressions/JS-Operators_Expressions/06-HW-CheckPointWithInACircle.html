@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>JS-Operators and Expressions</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <style>
+	input[type=text]{
+		border:1px solid black;
+		padding:5px 15px;
+		background-color:black;
+		color:white;
+		font-family:Consolas;		   
+		margin-bottom:5px;
+	}
+
+	a{
+		color:black;
+		border:1px solid black;
+		padding:5px 15px;						
+		text-decoration:none;	   
+		display:inline-block;		 
+		margin: 15px 0;
+	}
+
+	a:hover{
+		text-decoration:underline;
+	}
+</style>
+</head>
+<body>
+    <fieldset>
+        <legend>What your coordinate of the point?</legend>
+        <label for="tb-pointX">Enter X: </label>
+	    <input type="text" id="tb-pointX"/>
+	    <br />	
+        <label for="tb-pointY">Enter Y: </label>
+	    <input type="text" id="tb-pointY"/>
+	    <br />			
+        <a href="#" onclick="onButtonClick()">Check with in a circle</a>
+	    <div id="console">
+	    </div>
+    </fieldset>
+    <script src="scripts/js-console.js"></script>
+    <script>
+        function onButtonClick() {
+            var pointX = jsConsole.read("#tb-pointX");
+            var pointY = jsConsole.read("#tb-pointY");
+            var r = 5;
+            var distance = pointX * pointX + pointY * pointY;
+            var isPointWithin = distance < (r * r);
+            jsConsole.writeLine("The point is in the circle -> " + isPointWithin);
+        }
+    </script>
+
+</body>
+</html>
+

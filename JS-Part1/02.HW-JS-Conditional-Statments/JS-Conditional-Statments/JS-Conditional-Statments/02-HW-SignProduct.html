@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>JS-Conditional-Statments</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <style>
+	input[type=text]{
+		border:1px solid black;
+		padding:5px 15px;
+		background-color:black;
+		color:white;
+		font-family:Consolas;		   
+		margin-bottom:5px;
+	}
+
+	a{
+		color:black;
+		border:1px solid black;
+		padding:5px 15px;						
+		text-decoration:none;	   
+		display:inline-block;		 
+		margin: 15px 0;
+	}
+
+	a:hover{
+		text-decoration:underline;
+	}
+</style>
+</head>
+<body>
+    <fieldset>
+        <legend>Three real numbers:</legend>
+        <label for="tb-number1">Enter first:</label>
+	    <input type="text" id="tb-number1"/>
+	    <br />			
+        <label for="tb-number2">Enter second:</label>
+	    <input type="text" id="tb-number2"/>
+	    <br />		
+        <label for="tb-number3">Enter third:</label>
+	    <input type="text" id="tb-number3"/>
+	    <br />		
+        <a href="#" onclick="onButtonClick()">The sign of the product</a>
+	    <div id="console">
+	    </div>
+    </fieldset>
+    <script src="scripts/js-console.js"></script>
+    <script>
+        function onButtonClick() {
+
+            var number1 = jsConsole.readFloat("#tb-number1");
+            var number2 = jsConsole.readFloat("#tb-number2");
+            var number3 = jsConsole.readFloat("#tb-number3");
+
+            if (number1 == 0 || number2 == 0 || number3 == 0)
+            {
+                jsConsole.writeLine("The sign of the product is 0!");
+            }
+            if (number1 < 0 && number2 > 0 && number3 > 0)
+            {
+                jsConsole.writeLine("The sign of the product is -!");
+            }
+            if (number2 < 0 && number1 > 0 && number3 > 0)
+            {
+                jsConsole.writeLine("The sign of the product is -!");
+            }
+            if (number3 < 0 && number2 > 0 && number1 > 0)
+            {
+                jsConsole.writeLine("The sign of the product is -!");
+            }
+            if (number1 < 0 && number2 < 0 && number3 > 0)
+            {
+                jsConsole.writeLine("The sign of the product is +!");
+            }
+            if (number1 < 0 && number3 < 0 && number2 > 0)
+            {
+                jsConsole.writeLine("The sign of the product is +!");
+            }
+            if (number2 < 0 && number3 < 0 && number1 > 0)
+            {
+                jsConsole.writeLine("The sign of the product is +!");
+            }
+            if (number1 > 0 && number2 > 0 && number3 > 0)
+            {
+                jsConsole.writeLine("The sign of the product is +!");
+            }
+            if (number1 < 0 && number2 < 0 && number3 < 0)
+            {
+                jsConsole.writeLine("The sign of the product is -!");
+            }
+        
+
+        }
+    </script>
+
+</body>
+</html>
+

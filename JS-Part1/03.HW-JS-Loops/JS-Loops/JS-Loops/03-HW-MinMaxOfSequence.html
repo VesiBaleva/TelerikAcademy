@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>JS-Loops</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <style>
+	input[type=text]{
+		border:1px solid black;
+		padding:5px 15px;
+		background-color:black;
+		color:white;
+		font-family:Consolas;		   
+		margin-bottom:5px;
+	}
+
+	a{
+		color:black;
+		border:1px solid black;
+		padding:5px 15px;						
+		text-decoration:none;	   
+		display:inline-block;		 
+		margin: 15px 0;
+	}
+
+	a:hover{
+		text-decoration:underline;
+	}
+</style>
+</head>
+<body>
+    <fieldset>
+        <legend>Sequence:</legend>
+        <label for="tb-number">Enter any numbers separete by space:</label>
+	    <input type="text" id="tb-number"/>
+	    <br />		
+        <a href="#" onclick="onButtonClick()">Min And Max </a>
+	    <div id="console">
+	    </div>
+    </fieldset>
+    <script src="scripts/js-console.js"></script>
+    <script>
+
+        function onButtonClick() {
+            var number = jsConsole.readInteger("#tb-number");
+
+            var sequence = jsConsole.read("#tb-number");
+            
+            var arr = sequence.split(" ");
+
+            var min = parseInt(arr[0]);
+            var max = parseInt(arr[0]);
+
+            for (var i = 0; i < arr.length; i++) {
+
+                if (min > parseInt(arr[i])) {
+                    min = parseInt(arr[i]);
+                }
+                if (max < parseInt(arr[i])) {
+                    max = parseInt(arr[i]);
+                }
+            }
+
+            jsConsole.writeLine("Min value -> " + min);
+            jsConsole.writeLine("Max value -> " + max);
+
+        }
+    </script>
+
+</body>
+</html>

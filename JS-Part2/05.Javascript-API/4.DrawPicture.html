@@ -1,0 +1,300 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="Draw with canvas">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Draw with canvas</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+		<canvas id="main-canvas" width="1200" height="600">Canvas not supported</canvas>
+		<script>
+
+	  		var canvas = document.getElementById("main-canvas");
+			var ctx = canvas.getContext("2d");
+			ctx.fillStyle ="rgb(0,20,20)";
+			ctx.fillRect(0,0,canvas.width,canvas.height);
+
+			//start draw house
+			ctx.fillStyle = "rgb(151,91,91)";
+			ctx.strokeStyle = "rgb(0,0,0)";
+			ctx.lineWidth = 5;
+
+	        //the bottom rectangle - the base
+	        ctx.fillRect(650, 250, 450, 330);
+	        ctx.strokeRect(653, 253, 450, 330);
+
+	        //upper triangle - the roof
+	        ctx.beginPath();
+			ctx.moveTo(651, 253);
+			ctx.lineTo(865, 1);
+			ctx.lineTo(1104, 253);
+			ctx.fill();
+			ctx.stroke();
+			ctx.closePath();
+
+			//windows
+			//first window above the door
+			ctx.beginPath();
+			ctx.lineWidth = 50;
+			//first above
+			ctx.moveTo(700, 300);
+			ctx.lineTo(780, 300);
+	        //second above part
+			ctx.moveTo(785, 300);
+			ctx.lineTo(865, 300);
+			//first bottom
+			ctx.moveTo(700, 355);
+			ctx.lineTo(780, 355);
+			//second bottom
+			ctx.moveTo(785, 355);
+			ctx.lineTo(865, 355);
+			ctx.stroke();
+
+			//second window above 
+			//first above
+			ctx.moveTo(915, 300);
+			ctx.lineTo(995, 300);
+			//second above part
+			ctx.moveTo(1000, 300);
+			ctx.lineTo(1080, 300);
+			//first bottom
+			ctx.moveTo(915, 355);
+			ctx.lineTo(995, 355);
+			//second bottom
+			ctx.moveTo(1000, 355);
+			ctx.lineTo(1080, 355);
+			ctx.stroke();
+
+			//third window down
+			//first above
+			ctx.moveTo(915, 445);
+			ctx.lineTo(995, 445);
+			//second above part
+			ctx.moveTo(1000, 445);
+			ctx.lineTo(1080, 445);
+			//first bottom
+			ctx.moveTo(915, 500);
+			ctx.lineTo(995, 500);
+			//second bottom
+			ctx.moveTo(1000, 500);
+			ctx.lineTo(1080, 500);
+			ctx.stroke();
+			ctx.closePath();
+
+
+			//chimney rectangle
+			ctx.beginPath();
+			ctx.lineWidth = 4;
+			ctx.fillRect(975, 70, 50, 135);
+			ctx.strokeRect(975, 70, 50, 135);
+			ctx.stroke();
+			ctx.closePath();
+			//chimney ellipses
+			ctx.lineWidth = 9;
+			//save before scale
+			ctx.save();
+			//after scale command all figures will be scaled
+			ctx.scale(0.95, 0.3);
+			ctx.beginPath();
+			ctx.arc(1053, 230, 24, 0, 2 * Math.PI, false);
+			ctx.fill();
+			ctx.stroke();
+			ctx.fillRect(1000, 670, 90, 90);
+			ctx.fill();
+			ctx.closePath();
+			//important to restore sizes before scale command
+			ctx.restore();
+
+			//door
+			//rectangle
+			ctx.beginPath();
+			ctx.lineWidth = 5;
+			ctx.strokeRect(725, 457, 124, 125);
+			//the arc of the door
+			ctx.save();
+			ctx.scale(1, 0.6);
+			ctx.beginPath();
+			ctx.arc(787, 770, 62, 0, Math.PI, true);
+			ctx.fill();
+			ctx.stroke();
+			ctx.closePath();
+			//important to restore sizes before scale command
+			ctx.restore();
+			//line and two small circles at the door
+			ctx.beginPath();
+			ctx.moveTo(787, 423);
+			ctx.lineTo(787, 580);
+			ctx.stroke();
+			ctx.closePath();
+			ctx.beginPath();
+			ctx.arc(767, 540, 7, 0, 2 * Math.PI, true);
+			ctx.stroke();
+			ctx.closePath();
+			ctx.beginPath();
+			ctx.arc(707, 540, 7, 0, 2 * Math.PI, true);
+			ctx.stroke();
+
+			//start to draw bike
+	        var canvas = document.getElementById("main-canvas");
+			var ctx = canvas.getContext("2d");
+	        ctx.fillStyle = "rgb(144,202,215)";
+	        ctx.strokeStyle = "rgb(51,125,143)";
+	        ctx.lineWidth = 5;
+
+	        //first tyre
+	        ctx.beginPath();
+	        ctx.arc(91, 460, 90, 0, 2 * Math.PI, false);
+	        ctx.fill();
+	        ctx.stroke();
+
+	        //second tyre
+	        ctx.beginPath();
+	        ctx.arc(440, 460, 90, 0, 2 * Math.PI, false);
+	        ctx.fill();
+	        ctx.stroke();
+
+	        //third circle
+	        ctx.beginPath();
+	        ctx.arc(250, 460, 25, 0, 2 * Math.PI, false);
+	        ctx.stroke();
+
+	        // two lines near the third circle
+	        ctx.moveTo(230, 440);
+	        ctx.lineTo(210, 420);
+	        ctx.moveTo(270, 480);
+	        ctx.lineTo(290, 500);
+	        ctx.stroke();
+	  
+	        //front stick
+	        ctx.moveTo(440, 460);
+	        ctx.lineTo(410, 230);
+	        ctx.lineTo(480, 170);
+	        ctx.moveTo(410, 230);
+	        ctx.lineTo(320, 250);
+	        ctx.stroke();
+
+	        // start from third to first circle line
+	        // four lines forming four sided figure (trapezoid?) and rear stick
+	        ctx.moveTo(250, 460);
+	        ctx.lineTo(91, 460);
+	        ctx.lineTo(205, 330);
+	        ctx.lineTo(420, 330);
+	        ctx.lineTo(250, 460);
+	        ctx.lineTo(175, 270);
+	        ctx.moveTo(215, 270);
+	        ctx.lineTo(135, 270);
+	        ctx.stroke();    
+			
+			//set 
+			ctx.fillStyle = "rgb(144,202,215)";
+	      	ctx.strokeStyle = "rgb(34,84,95)";
+	      	ctx.lineWidth = 5;
+
+	      	// big circle
+	      	ctx.beginPath();
+	     	ctx.save();
+	      	ctx.scale(1, 0.9);
+	      	ctx.arc(300, 250, 60, 0, 2 * Math.PI, true);
+	      	ctx.fill();
+	      	ctx.stroke();
+	      	ctx.closePath();
+	      	//important to restore sizes before scale command
+	      	ctx.restore();
+
+
+	      	//mouth      	
+	      	ctx.beginPath();
+	      	ctx.lineWidth = 6;
+	      	ctx.setTransform(1, 0.2, 0, 0.4, 0, 0);
+	      	ctx.arc(290, 460, 20, 0, 2 * Math.PI, true);
+	      	ctx.fill();
+	      	ctx.stroke();
+	      	ctx.closePath();
+	      	//important to restore sizes before scale command
+	      	ctx.restore();
+
+	      	//nose
+	        ctx.beginPath();
+	        ctx.lineWidth = 4;
+	        ctx.moveTo(305,420);
+	        ctx.lineTo(285, 420);
+	        ctx.lineTo(305, 360);
+	        ctx.stroke();
+	        ctx.closePath();
+
+	        //eyes
+	        //big ellipsis of the eyes
+	        ctx.save();
+	        ctx.beginPath();
+	        ctx.lineWidth = 5;
+	        ctx.scale(1, 0.7);
+	        ctx.arc(280, 500, 15, 0, 2 * Math.PI, true);
+	        ctx.stroke();
+	        ctx.closePath();
+	        ctx.beginPath();
+	        ctx.save();
+	        ctx.arc(340, 500, 15, 0, 2 * Math.PI, true);
+	        ctx.fill();
+	        ctx.stroke();
+	        ctx.closePath();
+	        ctx.restore();
+
+	        //small ellipsis of the eyes - pupils
+	        ctx.save();
+	        ctx.beginPath();
+	        ctx.lineWidth = 5;
+	        ctx.fillStyle = "rgb(34,84,95)";
+	        ctx.scale(0.3, 1);
+	        ctx.arc(1110, 500, 10, 0, 2 * Math.PI, true);
+	        ctx.stroke();
+	        ctx.fill();
+	        ctx.closePath();
+	        ctx.beginPath();
+	        ctx.save();
+	        ctx.arc(910, 500, 10, 0, 2 * Math.PI, true);
+	        ctx.stroke();
+	        ctx.fill();
+	        ctx.closePath();
+	        ctx.restore();
+
+	        // hat
+	        // bottom circle      
+	        ctx.fillStyle = "rgb(57,102,147)";
+	        ctx.strokeStyle = "rgb(0,0,0)";
+	        ctx.beginPath();
+	        ctx.lineWidth = 30;
+	        ctx.scale(1, 0.1);
+	        ctx.arc(1040, 3900, 250, 0, 2 * Math.PI, true);
+	        ctx.stroke();
+	        ctx.fill();
+	        ctx.closePath();
+	        ctx.restore();
+
+	        //rectangle
+	        ctx.save();
+	        ctx.beginPath();
+	        ctx.fillStyle = "rgb(57,102,147)";
+	        ctx.strokeStyle = "rgb(0,0,0)";
+	        ctx.lineWidth = 5;
+	        ctx.fillRect(265, 150, 90, 230);
+	        ctx.strokeRect(265, 150, 90, 230);
+	        ctx.closePath();
+	        ctx.restore();
+
+	        //ellipses
+	        ctx.save();
+	        ctx.beginPath();
+	        ctx.lineWidth = 15;
+	        ctx.fillStyle = "rgb(57,102,147)";
+	        ctx.strokeStyle = "rgb(0,0,0)";
+	        ctx.scale(1, 0.4);
+	        ctx.arc(310, 350, 43, 0, 2 * Math.PI, true);
+	        ctx.stroke();
+	        ctx.fill();
+	        ctx.closePath();
+
+		</script> 
+	</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Vehicles</title>
+    <script src="vehicles.js"></script>
+</head>
+<body>
+	<h1>For Demo use the console of your browser with F12 key!</h1>
+    <script>
+        var speedUnits = " mph";
+
+        //create 4 wheels with sample radius of one wheel -> 15
+        var wheels = [
+            new typeOfVehicle.Wheel(15),
+            new typeOfVehicle.Wheel(15),
+            new typeOfVehicle.Wheel(15), 
+            new typeOfVehicle.Wheel(15)
+        ];
+
+        //constructor for propelling nozzles with set power->150  and set afterburnerSwitch to deactivated
+        var propellingNozzles = [
+            new typeOfVehicle.PropellingNozzle(150, typeOfVehicle.AfterburnerSwitch.DEACTIVATED)
+        ];
+
+        //constructor for propeller with set number of fins to 28 and spin direction to Clockwise
+        var propellers = [
+            new typeOfVehicle.Propeller(28, typeOfVehicle.SpinDirection.CLOCKWISE),
+            new typeOfVehicle.Propeller(28, typeOfVehicle.SpinDirection.CLOCKWISE),
+            new typeOfVehicle.Propeller(28, typeOfVehicle.SpinDirection.CLOCKWISE),            
+        ];
+
+        //create sample land vehicle with speed -> 29 and four weels before instances
+        var landVehicle = new typeOfVehicle.LandVehicle(29, wheels);
+        console.log("Land vehicle speed: " + landVehicle.speed + speedUnits);
+        
+        // accelerate the land vehicle
+        landVehicle.accelerate();
+
+        //and calculate speed after acceleration
+        console.log("Land vehicle speed after acceleration: " + landVehicle.speed + speedUnits);
+
+        //instance for air vehicle with speed 100 and before propelling nozzles with
+        // afterburner set to DEACTIVATED
+        //air vehicles should have 1 propelling nozzles
+        var airVehicle = new typeOfVehicle.AirVehicle(100, propellingNozzles);
+        console.log("Air Vehicle speed: " + airVehicle.speed + speedUnits);
+        
+        // accelerate the aircraft with deactivated afterburners ->
+        // speed+power of propelling nozzles-> 100+150=250
+        airVehicle.accelerate();
+        console.log("Air Vehicle speed after acceleration with afterburners deactivated: " + airVehicle.speed + speedUnits);
+
+        // activate the afterburners
+        airVehicle.switchingAfterburner(typeOfVehicle.AfterburnerSwitch.ACTIVATED);
+        
+        //accelerate air vehicle
+        airVehicle.accelerate();
+
+        //calculate acceleration when set afterburners to activate state 
+        //with formula -> propelling nozzle =2*power=2*150=300+250 (speed until activated)->550
+        console.log("Air vehicle speed after acceleration with afterburners activated: " + airVehicle.speed + speedUnits);
+
+        //water vehicles should have a customizable number of propellers (passed in the constructor)
+        var waterVehicle = new typeOfVehicle.WaterVehicle(30, propellers);
+        console.log("Water vehicle speed: " + waterVehicle.speed + speedUnits);
+
+        // accelerate the waterVehicle
+        waterVehicle.accelerate();
+        console.log("Water vehicle speed after acceleration with propellers rotating clockwise: " + waterVehicle.speed + speedUnits);
+
+        // change the propellers rotation direction
+        waterVehicle.changePropellerSpineDirection(typeOfVehicle.SpinDirection.COUNTERCLOCKWISE);
+        waterVehicle.accelerate();
+        console.log("Water vehicle speed after acceleration with propellers rotating counterclockwise: " + waterVehicle.speed + speedUnits);
+
+        var amphibianPropellers = [
+            new typeOfVehicle.Propeller(4, typeOfVehicle.SpinDirection.CLOCKWISE)
+        ];
+
+        var amphibian = new typeOfVehicle.Amphibian(61, amphibianPropellers, wheels, typeOfVehicle.AmphibianMode.LAND);
+        console.log("Amphibian speed: " + amphibian.speed + speedUnits);
+
+        // accelerate the amphibian
+        amphibian.accelerate();
+        console.log("Amphibian speed after acceleration on land: " + amphibian.speed + speedUnits);
+
+        // change amphibian mode to water
+        amphibian.mode = typeOfVehicle.AmphibianMode.WATER;
+        amphibian.accelerate();
+        console.log("Amphibian speed after acceleration on water with propellers rotating clockwise: " + amphibian.speed + speedUnits);
+
+        // change the propellers rotation direction
+        amphibian.changePropellerSpineDirection(typeOfVehicle.SpinDirection.COUNTERCLOCKWISE);
+        amphibian.accelerate();
+        console.log("Amphibian speed after acceleration on water with propellers rotating counterclockwise: " + amphibian.speed + speedUnits);
+    </script>
+</body>
+</html>
+
+

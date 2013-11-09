@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>JS-Operators and Expressions</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <style>
+	input[type=text]{
+		border:1px solid black;
+		padding:5px 15px;
+		background-color:black;
+		color:white;
+		font-family:Consolas;		   
+		margin-bottom:5px;
+	}
+
+	a{
+		color:black;
+		border:1px solid black;
+		padding:5px 15px;						
+		text-decoration:none;	   
+		display:inline-block;		 
+		margin: 15px 0;
+	}
+
+	a:hover{
+		text-decoration:underline;
+	}
+</style>
+</head>
+<body>
+    <fieldset>
+        <legend>Point's coodinates</legend>
+        <label for="tb-pointX">Enetr X of point:</label>
+	    <input type="text" id="tb-pointX"/>
+	    <br />			
+        <label for="tb-pointY">Enetr Y of point:</label>
+	    <input type="text" id="tb-pointY"/>
+	    <br />		
+        <a href="#" onclick="onButtonClick()">Check</a>
+	    <div id="console">
+	    </div>
+    </fieldset>
+    <script src="scripts/js-console.js"></script>
+    <script>
+        function onButtonClick() {
+            var circleX = 1;
+            var circleY = 1;
+            var radius = 3;
+            var recTop = 1;
+            var recLeft = -1;
+            var recWidth = 6;
+            var recHeight = 2;
+
+            var pointX = jsConsole.readFloat("#tb-pointX");
+            var pointY = jsConsole.readFloat("#tb-pointY");
+
+            var distance = (pointX - circleX) * (pointX - circleX) + (pointY - circleY) * (pointY - circleY);
+            
+            var inCircle = distance < radius * radius;
+            var inRectangle = pointX >= recLeft && pointX <= (recWidth + recLeft) && pointY >= recTop && pointY <= (recTop + recHeight);
+
+            jsConsole.writeLine(inCircle && inRectangle==false ? "The point is within the circle and out of the rectangle!":"The point is in anythere");
+
+        }
+    </script>
+
+</body>
+</html>
+

@@ -1,0 +1,69 @@
+﻿<!-- Write a function that checks if the element at given position in given array of integers is bigger than its two neighbors (when such exist).
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Check integer is bigger than its two neighbors</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <label for="tb-numbers">Enter numbers, separated by comma ",": </label>
+	<input id="tb-numbers" type="text" class="js-console-input" />
+    <label for="tb-num">Enter a position of the element to check is bigger than his two neighbors: </label>
+	<input id="tb-num" type="text" class="js-console-input" />
+	<a href="#" class="js-console-btn" onclick="onBtnClick()">Check</a>
+	<div id="js-console"></div>
+	<script src="scripts/js-console.js"></script>
+	<script>
+        
+		<!-- always return true of false from check-->
+	    function checkThanNeighbors(arr,position)
+	    {
+                if (position === 0 || position === arr.length - 1)
+	            {
+	                return false;
+	            }
+	            else
+	            {
+                    if (arr[position] > arr[position - 1] && arr[position] > arr[position + 1])
+	                {
+	                    return true;
+	                }
+	                else
+	                {
+                        return false;
+	                }   
+	            }               
+
+	    }
+
+        function onBtnClick() 
+        {
+            var arr = jsConsole.readNumbersArray("#tb-numbers",',');                     
+
+            for (var i = 0; i < arr.length; i++) {
+                jsConsole.write(arr[i] + " ");
+            }
+            jsConsole.writeLine();
+
+            var position = jsConsole.readFloat("#tb-num");
+
+            
+            if (position >= 0 && position <= arr.length)
+            {
+                
+                jsConsole.writeLine("The number in position " + position + " is " + arr[position] + " and is bigger than two neighbors -> " + checkThanNeighbors(arr, position));
+            }
+            else
+            {
+				<!--when the entered position is negative or bigger than length of array -->
+                jsConsole.writeLine("Position "+position+" is not in a range of the array!");
+            }
+            jsConsole.writeLine();               
+                      
+
+        }
+
+	</script>
+</body>
+</html>

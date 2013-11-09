@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>JS-Arrays</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <style>
+	input[type=text]{
+		border:1px solid black;
+		padding:5px 15px;
+		background-color:black;
+		color:white;
+		font-family:Consolas;		   
+		margin-bottom:5px;
+	}
+
+	a{
+		color:black;
+		border:1px solid black;
+		padding:5px 15px;						
+		text-decoration:none;	   
+		display:inline-block;		 
+		margin: 15px 0;
+	}
+
+	a:hover{
+		text-decoration:underline;
+	}
+</style>
+</head>
+<body>
+    <fieldset>
+        <legend>Lexicographically compares:</legend>		
+        <a href="#" onclick="onButtonClick()">Order</a>
+	    <div id="console">
+	    </div>
+    </fieldset>
+    <script src="scripts/js-console.js"></script>
+    <script>
+
+        function onButtonClick() {
+            var firstArray = ['a','b','c','d','e'];
+            var secondArray = ['a','b','c','e','e'];
+
+            jsConsole.write("First char array: ");
+            for (var i in firstArray) {
+                jsConsole.write(firstArray[i] + " ");
+            }
+
+            jsConsole.writeLine("");
+
+            jsConsole.write("Second char array: ");
+            for (var i in secondArray) {
+                jsConsole.write(secondArray[i] + " ");
+            }
+
+            jsConsole.writeLine("");
+
+            if (firstArray.length < secondArray.length)
+            {
+                jsConsole.writeLine("The first array is earler in lexicograficaly order!");
+            }
+            else if (firstArray.length > secondArray.length)
+            {
+                jsConsole.writeLine("The second array is earlier in lexicograficaly order!");
+            }
+            else
+            {
+                var eqviArrays = true;
+
+                for (var i = 0; i < firstArray.length; i++)
+                {
+                    
+                    if (firstArray[i] < secondArray[i])
+                    {
+                        jsConsole.writeLine("The first array is earler in lexicograficaly order!");
+                        eqviArrays = false;
+                        break;
+                    }
+                    else if (firstArray[i] > secondArray[i])
+                    {
+                        eqviArrays = false;
+                        jsConsole.writeLine("The first array is earler in lexicograficaly order!");
+                        break;
+                    }                
+                }
+            
+                if (eqviArrays==true) jsConsole.writeLine("Two arrays is with the same elements!");
+            }
+
+            
+        }
+    </script>
+    
+</body>
+</html>

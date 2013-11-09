@@ -1,0 +1,48 @@
+.clearfix:after {
+    display: table;
+    content: " ";
+    clear: both;
+}
+
+.carousel {
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel-panels {
+    @extend .clearfix;
+    position: relative;
+    left: 0;
+    width: 10000%;
+}
+
+.carousel-panel {
+    float: left;
+    width: 1%;
+}
+
+.carousel-arrow-left,
+.carousel-arrow-right {
+    position: absolute;
+    top: 50%;
+    margin-top: -1em;
+    z-index: 1;
+}
+
+.carousel-arrow-left { left: 0; }
+.carousel-arrow-right { right: 0; }
+
+
+.carousel-animated .carousel-panels {
+    -webkit-transition: left .6s cubic-bezier(.86, 0, .07, 1);
+       -moz-transition: left .6s cubic-bezier(.86, 0, .07, 1);
+         -o-transition: left .6s cubic-bezier(.86, 0, .07, 1);
+            transition: left .6s cubic-bezier(.86, 0, .07, 1);
+}
+
+.carousel-demo {
+    margin: 0 auto;
+    padding: 10px 0;
+    width: 400px;
+    text-align: center;
+}

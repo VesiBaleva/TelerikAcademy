@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>JS-Operators and Expressions</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <style>
+	input[type=text]{
+		border:1px solid black;
+		padding:5px 15px;
+		background-color:black;
+		color:white;
+		font-family:Consolas;		   
+		margin-bottom:5px;
+	}
+
+	a{
+		color:black;
+		border:1px solid black;
+		padding:5px 15px;						
+		text-decoration:none;	   
+		display:inline-block;		 
+		margin: 15px 0;
+	}
+
+	a:hover{
+		text-decoration:underline;
+	}
+</style>
+</head>
+<body>
+    <fieldset>
+        <legend>Trapezoid's Area</legend>
+        <label for="tb-sideA">Enetr side a:</label>
+	    <input type="text" id="tb-sideA"/>
+	    <br />			
+        <label for="tb-sideB">Enetr side b:</label>
+	    <input type="text" id="tb-sideB"/>
+	    <br />		
+        <label for="tb-height">Enetr height h:</label>
+	    <input type="text" id="tb-height"/>
+	    <br />		
+        <a href="#" onclick="onButtonClick()">Calculate area</a>
+	    <div id="console">
+	    </div>
+    </fieldset>
+    <script src="scripts/js-console.js"></script>
+    <script>
+        function onButtonClick() {
+            var sideA = jsConsole.read("#tb-sideA");
+            var sideB = jsConsole.read("#tb-sideB");
+            var height = jsConsole.read("#tb-height");
+
+            if (sideA > 0 && sideB > 0 && height > 0) {
+
+                var area = (Math.floor(sideA) + Math.floor(sideB)) / 2 * height;
+                jsConsole.writeLine("The trapezoid's area is: " + area );
+
+            } else {
+
+                jsConsole.writeLine("Enter positive numbers for the three lengths!!!")
+            }
+
+        }
+    </script>
+
+</body>
+</html>
+
